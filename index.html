@@ -1,0 +1,2694 @@
+<!doctype html><html><head><meta charset=utf-8><title>Quiz Bahasa Inggris</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* QuizLearn: monokrom hitam-putih-abu dengan efek kaca (glass).
+   Tata letak: satu kolom sempit seperti aplikasi HP, kartu kaca di atas latar abu bergradasi,
+   navigasi melayang di bawah. Semua warna diatur lewat variabel di bawah ini. */
+:root{
+  --bg:#E8E8E8;
+  --ink:#0A0A0A;
+  --ink-2:#4F4F4F;
+  --glass:rgba(255,255,255,.52);
+  --glass-hi:rgba(255,255,255,.72);
+  --edge:rgba(255,255,255,.82);
+  --track:rgba(0,0,0,.10);
+  --shadow:0 8px 24px rgba(0,0,0,.07), inset 0 1px 0 rgba(255,255,255,.9);
+  --dark-1:#2C2C2C;
+  --dark-2:#0A0A0A;
+  --font:'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:14px;
+  line-height:1.5;
+}
+button,input,textarea{font-family:inherit;font-size:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.on-dark :focus-visible{outline-color:#fff}
+
+/* latar */
+.bg{
+  position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(320px 320px at 100% 0%, #fff 0%, rgba(255,255,255,0) 70%),
+    radial-gradient(320px 320px at 0% 42%, rgba(90,90,90,.38) 0%, rgba(90,90,90,0) 70%),
+    radial-gradient(340px 340px at 100% 86%, rgba(60,60,60,.34) 0%, rgba(60,60,60,0) 70%),
+    linear-gradient(165deg,#F6F6F6 0%,#DCDCDC 48%,#F0F0F0 100%);
+}
+
+/* kerangka */
+.app{
+  max-width:520px;margin:0 auto;
+  padding-block:20px 120px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  display:flex;flex-direction:column;gap:14px;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{
+  width:40px;height:40px;border-radius:12px;background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex:none;
+}
+.brand-name{font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.brand-sub{font-size:12px;color:var(--ink-2)}
+main{display:flex;flex-direction:column;gap:14px;min-width:0;outline:none}
+
+h1.h1{margin:6px 0 0;font-size:27px;font-weight:800;letter-spacing:-.025em;line-height:1.15;text-wrap:balance}
+h2.h2{margin:0;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+h3.h3{margin:0;font-size:15px;font-weight:700}
+.lead{margin:0;color:var(--ink-2);font-size:14px;line-height:1.5}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ink);flex:none}
+.muted{color:var(--ink-2)}
+.small{font-size:12px}
+
+/* kaca */
+.glass{
+  background:var(--glass);
+  -webkit-backdrop-filter:blur(20px) saturate(125%);
+  backdrop-filter:blur(20px) saturate(125%);
+  border:1px solid var(--edge);
+  box-shadow:var(--shadow);
+}
+.card{border-radius:24px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+
+/* tombol */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:46px;padding:0 20px;border-radius:23px;
+  border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(180deg,var(--dark-1),var(--dark-2));
+  color:#fff;font-weight:700;
+  box-shadow:0 8px 18px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.22);
+  text-align:center;
+}
+.btn[disabled]{background:rgba(0,0,0,.12);color:#5A5A5A;box-shadow:none;border-color:transparent;cursor:not-allowed}
+.btn-ghost{
+  background:var(--glass-hi);color:var(--ink);border:1px solid var(--edge);
+  box-shadow:0 4px 12px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.btn-ghost[disabled]{background:rgba(255,255,255,.35);color:#5A5A5A}
+.btn-light{background:rgba(255,255,255,.94);color:var(--ink);border-color:rgba(255,255,255,.9);box-shadow:none}
+.btn-sm{min-height:40px;padding:0 16px;font-size:13px}
+.btn-block{width:100%}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>.btn{flex:1 1 120px}
+.back{
+  align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:40px;
+  padding:0 14px 0 10px;border-radius:20px;border:1px solid var(--edge);background:var(--glass-hi);font-weight:600;font-size:13px;
+}
+
+/* progress */
+.bar{height:8px;border-radius:4px;background:var(--track);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#3A3A3A,var(--ink))}
+
+/* statistik */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.stat{border-radius:20px;padding:12px 10px;display:flex;flex-direction:column;gap:6px}
+.stat svg{display:block}
+.stat b{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-size:11px;line-height:1.3;color:var(--ink-2)}
+
+/* kartu gelap */
+.dark{
+  position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(135deg,rgba(44,44,44,.94),rgba(10,10,10,.96));
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 14px 32px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.dark::before{
+  content:"";position:absolute;top:-70px;right:-50px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 70%);pointer-events:none;
+}
+.dark>*{position:relative}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#CFCFCF}
+.dark .meta{color:#CFCFCF;font-size:13px}
+.cta{flex-direction:row;align-items:center;gap:14px;flex-wrap:wrap}
+.cta .grow{flex:1 1 160px;display:flex;flex-direction:column;gap:3px}
+.cta .t{font-size:17px;font-weight:700;line-height:1.25}
+
+/* daftar bab */
+.listbtn{
+  width:100%;text-align:left;flex-direction:row;align-items:center;gap:12px;color:var(--ink);
+}
+.listbtn .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.listbtn .tt{font-weight:700;font-size:15px;line-height:1.3}
+.listbtn .ds{font-size:12px;color:var(--ink-2)}
+.num{
+  flex:none;width:44px;height:44px;border-radius:14px;border:1px solid var(--edge);
+  background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(210,210,210,.6));
+  display:flex;align-items:center;justify-content:center;font-weight:800;
+  box-shadow:0 6px 14px rgba(0,0,0,.08), inset 0 1px 0 #fff;
+}
+
+.note{font-size:12px;color:var(--ink-2);line-height:1.5}
+
+/* soal */
+.qhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+/* Transisi saat berpindah soal: kartu soal keluar sebentar, lalu masuk dari arah tujuan.
+   Hanya opacity dan transform yang dianimasikan agar tetap ringan di HP. */
+@keyframes qIn{from{opacity:0;transform:translate3d(var(--qx,18px),0,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+.qsec.q-in-next{--qx:18px;animation:qIn .26s cubic-bezier(.22,.68,0,1) backwards;will-change:transform,opacity}
+.qsec.q-in-prev{--qx:-18px;animation:qIn .26s cubic-bezier(.22,.68,0,1) backwards;will-change:transform,opacity}
+.qsec.q-out-next,.qsec.q-out-prev{opacity:0;transition:opacity .11s ease-in,transform .11s ease-in;will-change:transform,opacity}
+.qsec.q-out-next{transform:translate3d(-12px,0,0)}
+.qsec.q-out-prev{transform:translate3d(12px,0,0)}
+#main.q-swap .qsec *{transition:none!important}
+@media(prefers-reduced-motion:reduce){.qsec.q-in-next,.qsec.q-in-prev{animation:none}.qsec.q-out-next,.qsec.q-out-prev{transition:none}.ov,.ov .sheet,.ov.is-closing,.ov.is-closing .sheet{animation:none!important}}
+/* Transisi halus untuk perubahan status (pilihan jawaban, progres, nomor soal, tombol kalkulator, dock) */
+html{scrollbar-gutter:stable}
+.opt{transition:background-color .22s ease,color .22s ease,border-color .22s ease,opacity .22s ease,transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,filter .18s ease}
+.opt .lt{transition:background-color .22s ease,color .22s ease,border-color .22s ease}
+.bar>i{transition:width .38s cubic-bezier(.22,.68,0,1)}
+.nb{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .2s ease,filter .18s ease}
+.ck{transition:transform .12s cubic-bezier(.2,.8,.2,1),background-color .12s ease,box-shadow .12s ease,filter .12s ease}
+.cdisp .cd{transition:font-size .12s ease}
+.dock button{transition:background-color .25s ease,color .25s ease,transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,filter .18s ease}
+.ov{will-change:opacity}
+.ov .sheet{will-change:transform,opacity}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:0 12px;border-radius:14px;
+  background:var(--glass-hi);border:1px solid var(--edge);font-size:12px;font-weight:600;
+}
+.qtext{margin:0;font-size:17px;font-weight:700;line-height:1.4;text-wrap:pretty}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;min-height:52px;padding:12px 14px;border-radius:18px;
+  background:var(--glass-hi);border:1px solid var(--edge);
+  box-shadow:0 4px 12px rgba(0,0,0,.05), inset 0 1px 0 rgba(255,255,255,.9);
+  line-height:1.4;
+}
+.opt .lt{
+  flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin:0;
+}
+.opt .tx{flex:1;min-width:0}
+.opt .tag{display:block;margin-top:4px;font-size:12px;font-weight:700}
+.opt.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+.opt.sel .lt{border-color:#fff;background:#fff;color:var(--ink)}
+.opt.ok{background:var(--ink);color:#fff;border-color:var(--ink)}
+.opt.ok .lt{border-color:#fff;background:#fff;color:var(--ink)}
+.opt.bad{background:rgba(255,255,255,.9);border:2px dashed var(--ink)}
+.opt.bad .tx>span:first-child{text-decoration:line-through;text-decoration-thickness:1.5px}
+.opt.dim{opacity:.55}
+.opt[disabled]{cursor:default}
+.og{display:flex;flex-direction:column;gap:8px}
+.ex{margin:0 4px;border-radius:14px;padding:10px 14px;background:var(--glass-hi);border:1px solid var(--edge);display:flex;flex-direction:column;gap:3px;font-size:13px;line-height:1.5}
+.ex.ok{border:1.5px solid var(--ink)}
+.ex.bad{border:1.5px dashed var(--ink)}
+.ex b{display:flex;align-items:center;gap:6px;font-size:13px}
+.ex p{margin:0}
+.fb{border-radius:18px;padding:14px;background:var(--glass-hi);border:1px solid var(--edge);display:flex;flex-direction:column;gap:4px}
+.fb b{font-size:15px;display:flex;align-items:center;gap:8px}
+.fb p{margin:0;line-height:1.55}
+
+/* ujian */
+.timer{
+  margin-left:auto;background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;
+}
+.timer[data-low="1"]{background:#fff;color:var(--ink);text-decoration:underline}
+.chip-btn{position:relative;cursor:pointer;color:var(--ink)}
+.chip-btn::after{content:"";position:absolute;inset:-8px -4px}
+.ctl{display:grid;grid-template-columns:56px minmax(0,1fr) 56px;gap:10px}
+.ctl .btn{padding:0;min-width:0}
+.btn-step{line-height:1}
+.btn-step svg{display:block;flex:none}
+.btn-ragu[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nb{position:relative}
+.nb.ragu{background:#8C8C8C;border-color:#8C8C8C;color:#0A0A0A}
+.nb.ragu .l{color:#0A0A0A}
+.nb .n{font-size:15px}
+#overlay:empty{display:none}
+.ov{
+  position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;
+  padding:16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px));
+  background:rgba(10,10,10,.38);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  animation:popupBackdropIn .2s ease-out both;
+}
+@keyframes popupBackdropIn{from{opacity:0}to{opacity:1}}
+@keyframes popupSheetIn{from{opacity:0;transform:translate3d(0,18px,0) scale(.975)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+@keyframes popupSheetOut{from{opacity:1;transform:translate3d(0,0,0) scale(1)}to{opacity:0;transform:translate3d(0,10px,0) scale(.985)}}
+@keyframes popupBackdropOut{from{opacity:1}to{opacity:0}}
+.ov .sheet{animation:popupSheetIn .24s cubic-bezier(.2,.75,.25,1) both;transform-origin:center bottom}
+.ov.is-closing{pointer-events:none;animation:popupBackdropOut .17s ease-in both}
+.ov.is-closing .sheet{animation:popupSheetOut .17s ease-in both}
+.sheet{
+  width:100%;max-width:440px;max-height:calc(100% - 8px);overflow:auto;border-radius:24px;padding:16px;
+  display:flex;flex-direction:column;gap:12px;
+  background:rgba(255,255,255,.9);border:1px solid var(--edge);box-shadow:0 24px 60px rgba(0,0,0,.28);
+}
+.sheet-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.iconbtn{
+  width:40px;height:40px;border-radius:20px;border:1px solid var(--edge);background:var(--glass-hi);color:var(--ink);
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.lg{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;border:1px solid rgba(0,0,0,.25);background:#fff;font-style:normal;font-weight:800;font-size:11px;color:var(--ink)}
+.lg-done{background:var(--ink);border-color:var(--ink);color:#fff}
+.lg-now{border:2.5px solid var(--ink)}
+.lg-ragu{background:#8C8C8C;border-color:#8C8C8C;color:#0A0A0A}
+.nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:8px}
+.nb{
+  min-height:54px;border-radius:14px;border:1px solid var(--edge);background:var(--glass-hi);color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:0;
+  font-variant-numeric:tabular-nums;
+}
+.nb .n{font-size:15px;font-weight:800}
+.nb .l{font-size:12px;font-weight:700;color:var(--ink-2)}
+.nb.done{background:var(--ink);border-color:var(--ink);color:#fff}
+.nb.done .l{color:#fff}
+.chip-ico{padding:0;width:36px;justify-content:center}
+.chip-ico svg{display:block}
+.cdisp{border-radius:18px;padding:12px 16px;background:rgba(255,255,255,.7);border:1px solid var(--edge);display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:2px;min-height:84px;overflow:hidden}
+.cdisp .ce{font-size:13px;color:var(--ink-2);min-height:20px;max-width:100%;white-space:nowrap;overflow:hidden}
+.cdisp .cd{font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15;max-width:100%;white-space:nowrap;overflow:hidden}
+.ckeys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ck{height:52px;border-radius:16px;border:1px solid var(--edge);background:var(--glass-hi);color:var(--ink);font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0;touch-action:manipulation;box-shadow:0 4px 12px rgba(0,0,0,.05), inset 0 1px 0 rgba(255,255,255,.9)}
+.ck svg{display:block}
+.ck.fn{background:rgba(0,0,0,.08)}
+.ck.op{background:linear-gradient(180deg,var(--dark-1),var(--dark-2));color:#fff;border-color:rgba(255,255,255,.18)}
+.ck:active{transform:scale(.96)}
+.nb.bad{background:rgba(255,255,255,.9);border:2px dashed var(--ink)}
+.sheet-h h2.h2{font-size:19px}
+.nb.now{border:3px solid var(--ink);box-shadow:0 0 0 2px rgba(255,255,255,.9)}
+.nb.done.now{box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--ink)}
+.confirm{border-radius:18px;padding:14px;background:rgba(255,255,255,.9);border:2px solid var(--ink);display:flex;flex-direction:column;gap:10px}
+.confirm p{margin:0;line-height:1.5}
+ol.rules,ul.rules{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;line-height:1.5}
+
+/* hasil */
+.score{font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.score small{font-size:20px;font-weight:700;color:var(--ink-2);letter-spacing:0}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.two .glass{border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:2px}
+.two b{font-size:26px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.two span{font-size:12px;color:var(--ink-2)}
+
+/* riwayat */
+.hist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.hist li{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:var(--glass-hi);border:1px solid var(--edge);
+}
+.hist .hn{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.hist .hn b{font-size:13px}
+.hist .hn span{font-size:12px;color:var(--ink-2)}
+.hist .nv{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+/* penguasaan */
+.mast,.qlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.mrow{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border-radius:18px;background:var(--glass-hi);border:1px solid var(--edge)}
+.mtop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.mt{font-weight:700;font-size:14px;line-height:1.35;min-width:0}
+.mbot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pill{
+  flex:none;display:inline-flex;align-items:center;min-height:24px;padding:0 10px;border-radius:12px;
+  font-size:11px;font-weight:700;white-space:nowrap;border:1.5px solid var(--ink);background:#fff;color:var(--ink);
+}
+.pill-kuasai{background:var(--ink);color:#fff}
+.pill-belum{border-style:dashed}
+.pill-data{border-color:rgba(0,0,0,.3);color:var(--ink-2);font-weight:600}
+.qlist li{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:18px;background:var(--glass-hi);border:1px solid var(--edge)}
+.qt{font-weight:600;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.qm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+textarea{
+  width:100%;min-height:96px;resize:vertical;padding:12px;border-radius:16px;border:1px solid var(--edge);
+  background:rgba(255,255,255,.85);line-height:1.4;
+}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.filebtn:focus-within{outline:2px solid var(--ink);outline-offset:2px}
+.empty{margin:0;padding:18px 8px;text-align:center;color:var(--ink-2);line-height:1.5}
+
+/* grafik */
+.chart{display:block;width:100%;height:auto}
+.chart .gl{stroke:rgba(0,0,0,.10);stroke-width:1}
+.chart text{font-family:var(--font);font-size:10px;fill:var(--ink-2)}
+.chart .ln{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.chart .pt{fill:#fff;stroke:var(--ink);stroke-width:2.5}
+.chart .pe{fill:var(--ink);stroke:#fff;stroke-width:2}
+.chart .tip{fill:var(--ink)}
+.chart text.tipt{fill:#fff;font-weight:700;font-size:11px}
+
+/* navigasi bawah */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  padding-left:max(14px, env(safe-area-inset-left, 0px));
+  padding-right:max(14px, env(safe-area-inset-right, 0px));
+  padding-bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+  pointer-events:none;
+}
+.dock-bar{
+  pointer-events:auto;max-width:520px;margin:0 auto;height:68px;padding:0 8px;border-radius:32px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.62);
+  -webkit-backdrop-filter:blur(24px) saturate(130%);backdrop-filter:blur(24px) saturate(130%);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 12px 32px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.95);
+}
+.dock button{
+  flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:54px;margin:0 2px;padding:0;
+  border:0;border-radius:24px;background:transparent;color:var(--ink-2);font-size:11px;font-weight:600;
+}
+.dock button[aria-current="page"]{background:var(--ink);color:#fff;font-weight:700}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom, 0px));transform:translate(-50%,12px);z-index:30;
+  max-width:min(440px, calc(100vw - 32px));padding:12px 18px;border-radius:18px;background:var(--ink);color:#fff;
+  font-weight:600;font-size:13px;line-height:1.4;text-align:center;opacity:0;pointer-events:none;
+  transition:opacity .2s, transform .2s;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.wel{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;
+  padding:24px max(24px, env(safe-area-inset-right, 0px)) 24px max(24px, env(safe-area-inset-left, 0px))}
+.wel.fade{opacity:0;transition:opacity .25s ease}
+.wel-blur{position:absolute;inset:0;background:rgba(240,240,240,.42);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.wel-body{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;
+  animation:welIn .7s cubic-bezier(.22,1,.36,1) backwards;transition:opacity .35s ease, transform .35s ease}
+.wel-body.out{opacity:0;transform:scale(.96);pointer-events:none}
+.wel-t{margin:0;font-size:36px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.wel-btn{min-height:56px;padding:0 36px;font-size:17px;border-radius:28px}
+@keyframes welIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes ldIn{from{opacity:0}to{opacity:1}}
+.ld .wel-blur{animation:ldIn .25s ease both}
+.ld-pct{font-size:56px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.ld-bar{width:min(240px,64vw);height:8px;border-radius:4px;background:var(--track);overflow:hidden}
+.ld-bar i{display:block;height:100%;width:100%;border-radius:4px;background:var(--ink);transform:scaleX(0);transform-origin:left;will-change:transform}
+.ld-lbl{font-size:14px;font-weight:600;color:var(--ink-2)}
+@media (max-width:360px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .score{font-size:52px}
+}
+
+/* Efek interaksi universal untuk seluruh tombol, termasuk navigasi dan tombol dinamis */
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn){
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  cursor:pointer;
+  transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,filter .18s ease,background-color .18s ease;
+  transform-origin:center;
+}
+@media (hover:hover) and (pointer:fine){
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn):not([disabled]):not([aria-disabled="true"]):hover{
+  filter:brightness(1.08);
+  box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 16px rgba(255,255,255,.16);
+}
+}
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn):not([disabled]):not([aria-disabled="true"]):active,
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn).ql-pressed{
+  transform:scale(.955);
+  filter:brightness(1.16);
+  box-shadow:0 0 0 2px rgba(255,255,255,.62),0 0 10px rgba(255,255,255,.42),0 0 24px rgba(255,255,255,.24);
+}
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn):not([disabled]):not([aria-disabled="true"]):focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:3px;
+}
+@media (prefers-reduced-motion:reduce){
+  :where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn){transition:none}
+}
+
+</style>
+<div class="bg" aria-hidden="true"></div>
+
+<div class="app">
+  <header class="brand">
+    <div class="logo" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></svg>
+    </div>
+    <div>
+      <div class="brand-name">QuizLearn</div>
+      <div class="brand-sub" id="mapel"></div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<nav class="dock" aria-label="Navigasi utama"><div class="dock-bar" id="dock"></div></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>Website ini membutuhkan JavaScript. Aktifkan JavaScript di browser Anda.</noscript>
+<script>window.QL_CAN_DOWNLOAD = false;</script>
+<script>
+/*
+  DATA SOAL
+  Edit file ini untuk mengganti isi website. Tidak perlu mengubah file lain.
+
+  Aturan penulisan:
+  - "kunci" adalah nomor pilihan jawaban yang benar, dimulai dari 0
+    (0 = pilihan A, 1 = pilihan B, 2 = pilihan C, 3 = pilihan D).
+  - Setiap soal harus punya "id" yang berbeda.
+  - Setiap soal wajib punya tepat 4 pilihan.
+  - "jelas" adalah penjelasan jawaban yang benar. "jelasOpsi" (opsional) berisi 4 penjelasan,
+    satu per pilihan. Yang dipakai hanya penjelasan pilihan yang salah (isi pilihan benar boleh dikosongkan).
+  - Tanda kutip di dalam teks sebaiknya memakai tanda ' atau " yang diberi garis miring: \"
+*/
+window.QL_DATA = {
+  mapel: "Bahasa Inggris",
+  kunciPenyimpanan: "bing",   // kode singkat tanpa spasi; bedakan untuk tiap mata kuliah
+
+  pengaturan: {
+    ujianJumlahSoal: 60,   // jumlah soal dalam satu ujian (diambil acak dari semua bab)
+    ujianMenit: 60,        // durasi ujian dalam menit
+    penguasaan: {          // batas analisis di menu Progres (boleh dihapus untuk memakai nilai bawaan)
+      batasDikuasai: 80,   // persen benar minimal agar bab berstatus Dikuasai
+      batasCukup: 60,      // persen benar minimal agar bab berstatus Cukup
+      minJawabanBab: 5,    // jumlah jawaban minimal agar bab dinilai
+      minJawabanSoal: 2,   // soal dinilai setelah dijawab minimal sekian kali
+      batasSoalSalah: 50   // persen salah minimal agar soal masuk daftar "sering salah"
+    }
+  },
+
+  // Untuk menambah soal, tambahkan objek ke array "bab" dengan format berikut:
+  //
+  // bab: [
+  //   {
+  //     id: "bab1",
+  //     judul: "Bab 1. Judul Bab",
+  //     soal: [
+  //       {
+  //         id: "b1-1",
+  //         tanya: "Teks pertanyaan?",
+  //         opsi: ["Pilihan A", "Pilihan B", "Pilihan C", "Pilihan D"],
+  //         kunci: 1,
+  //         jelas: "Penjelasan mengapa jawaban yang benar itu benar.",
+  //         jelasOpsi: ["Mengapa A salah.", "", "Mengapa C salah.", "Mengapa D salah."]
+  //       }
+  //     ]
+  //   }
+  // ]
+  bab: [
+    {
+      "id": "bagian1",
+      "judul": "Bagian 1",
+      "soal": [
+        {
+          "id": "bg1-1",
+          "tanya": "Which one from the expression below is a formal English language?",
+          "opsi": [
+            "You should do whatever you have to as soon as you can.",
+            "Essential measures should be undertaken at the earliest opportunity.",
+            "Don't send anything off until you're told to.",
+            "I'm happy to say that my proposal was accepted."
+          ],
+          "kunci": 1,
+          "jelas": "Bahasa formal menggunakan pilihan kata yang lebih resmi, objektif, dan cenderung menghindari ungkapan percakapan sehari-hari. Frasa essential measures, should be undertaken, dan at the earliest opportunity memiliki nuansa formal. Pilihan lain lebih menyerupai bahasa percakapan atau ungkapan personal.",
+          "jelasOpsi": [
+            "Cenderung langsung dan percakapan.",
+            "",
+            "Menggunakan kontraksi don't dan gaya instruksi sehari-hari.",
+            "Menggunakan kontraksi I'm dan ungkapan personal."
+          ]
+        },
+        {
+          "id": "bg1-2",
+          "tanya": "Which one from the expression below is an informal English language?",
+          "opsi": [
+            "Research has shown that learning a second language can expand the reasoning capability of the brain.",
+            "Before Europeans discovered America, they didn't eat potatoes.",
+            "Please await instructions before dispatching items.",
+            "The inclement climatic conditions obliged the President to return earlier than scheduled."
+          ],
+          "kunci": 1,
+          "jelas": "Pilihan B memakai kontraksi didn't dan susunan bahasa yang lebih lazim dalam komunikasi sehari-hari. Pilihan C dan D menggunakan diksi yang lebih formal, sedangkan A bernada akademis.",
+          "jelasOpsi": [
+            "Research has shown... — Gaya akademis.",
+            "",
+            "Formal, terutama await dan dispatching.",
+            "The inclement climatic conditions obliged... — Sangat formal dan menggunakan kosakata tingkat lanjut."
+          ]
+        },
+        {
+          "id": "bg1-3",
+          "tanya": "Which one from the expression below is a cliché?",
+          "opsi": [
+            "A large number of",
+            "Due to the fact that",
+            "Last but not least",
+            "In the near future"
+          ],
+          "kunci": 2,
+          "jelas": "Cliché adalah ungkapan yang terlalu sering digunakan sehingga terasa klise atau kurang orisinal. Last but not least merupakan ungkapan umum untuk memperkenalkan hal terakhir yang tetap dianggap penting.",
+          "jelasOpsi": [
+            "Frasa kuantitas biasa.",
+            "Frasa penghubung yang bertele-tele, tetapi bukan contoh paling jelas dari cliché pada pilihan ini.",
+            "",
+            "Frasa waktu umum."
+          ]
+        },
+        {
+          "id": "bg1-4",
+          "tanya": "Which one from the expression below is an abbreviation?",
+          "opsi": [
+            "I'mma",
+            "FYI",
+            "Bro",
+            "Hip"
+          ],
+          "kunci": 1,
+          "jelas": "FYI merupakan singkatan dari for your information, yang digunakan untuk menyampaikan informasi kepada penerima.",
+          "jelasOpsi": [
+            "Bentuk percakapan tidak baku dari I'm going to, bukan singkatan standar.",
+            "",
+            "Sapaan informal, bukan abbreviation dalam konteks ini.",
+            "Kata bahasa Inggris, bukan singkatan."
+          ]
+        },
+        {
+          "id": "bg1-5",
+          "tanya": "Which one from the sentences below has proper punctuation?",
+          "opsi": [
+            "In summer, its way too hot around here.",
+            "Kevin, Lillian, and Thomas are on their way to Dayton Ohio.",
+            "You don't know me well, do you?",
+            "Stop you can't go any further!"
+          ],
+          "kunci": 2,
+          "jelas": "Kalimat C menggunakan tanda koma dengan benar untuk memisahkan pernyataan dari question tag. Tanda tanya diletakkan di akhir karena keseluruhan kalimat berbentuk pertanyaan.",
+          "jelasOpsi": [
+            "Seharusnya In summer, it's way too hot around here. Kata it's merupakan singkatan it is; its adalah bentuk kepemilikan.",
+            "Seharusnya terdapat koma setelah Dayton: Dayton, Ohio.",
+            "",
+            "Seharusnya Stop! You can't go any further! atau Stop; you can't go any further! karena dua klausa membutuhkan pemisah yang tepat."
+          ]
+        },
+        {
+          "id": "bg1-6",
+          "tanya": "Which one from the sentences below has proper capitalization?",
+          "opsi": [
+            "The Senator was talking to the President.",
+            "My favourite book is \"The Fellowship Of The Ring\".",
+            "He was born in New York city.",
+            "He received a bachelor's degree from the University of Colorado."
+          ],
+          "kunci": 3,
+          "jelas": "Nama resmi institusi menggunakan huruf kapital pada unsur nama diri, seperti University of Colorado. Istilah umum bachelor's degree tidak perlu dikapitalisasi.",
+          "jelasOpsi": [
+            "Senator dan President tidak selalu dikapitalisasi jika digunakan secara umum tanpa nama atau konteks gelar resmi tertentu.",
+            "Penulisan judul buku tidak tepat; dalam gaya title case, kata of biasanya tidak dikapitalisasi: The Fellowship of the Ring.",
+            "Nama kota harus ditulis New York City, bukan New York city.",
+            ""
+          ]
+        },
+        {
+          "id": "bg1-7",
+          "tanya": "Which one from the sentences below has the proper grammar?",
+          "opsi": [
+            "Studies has found that working together make people more motivated and helps them perform much better.",
+            "The first step to understanding the role of collaboration in negotiations is to realise that it is not always a competitiveness situation.",
+            "Conflict at work can affects the motivation and well-being of staff and create stress.",
+            "In the last ten years, increasing use of social media and online platforms have allowed companies to connect with customers in new ways."
+          ],
+          "kunci": 3,
+          "jelas": "[PERIKSA] Kunci bank soal D. Tidak ada opsi yang sepenuhnya gramatikal. D seharusnya menggunakan has allowed. Mengikuti kunci bank soal. Tidak ada pilihan yang sepenuhnya benar secara tata bahasa. Pada A, Studies seharusnya diikuti have found, sedangkan working together sebagai subjek klausa seharusnya diikuti makes. Pada C, setelah modal can, kata kerja harus berbentuk dasar: can affect. Pada D, subjek inti increasing use bersifat tunggal sehingga seharusnya has allowed, bukan have allowed. Pilihan B paling mendekati struktur gramatikal, tetapi frasa a competitiveness situation tidak alami dan sebaiknya a competitive situation.",
+          "jelasOpsi": [
+            "Salah: Studies have found that working together makes people more motivated and helps them perform...",
+            "Struktur utama dapat diterima, tetapi a competitiveness situation sebaiknya a competitive situation.",
+            "Salah: can affect, bukan can affects.",
+            ""
+          ]
+        },
+        {
+          "id": "bg1-8",
+          "tanya": "Which one from the sentences below is an example of a descriptive sentence?",
+          "opsi": [
+            "The doctor has taken an oath to protect her patients.",
+            "The team should shake hands with their opponents.",
+            "One of the hardest things I've ever had to do was learn how to swim.",
+            "His deep and soulful blue eyes were like the color of the ocean."
+          ],
+          "kunci": 3,
+          "jelas": "Kalimat deskriptif menggambarkan ciri, keadaan, atau karakteristik sesuatu. Pilihan D menggunakan kata sifat deep, soulful, dan blue, serta perbandingan dengan warna lautan untuk membangun gambaran visual.",
+          "jelasOpsi": [
+            "Menyatakan tindakan atau kewajiban dokter.",
+            "Menyatakan saran atau kewajiban tim.",
+            "Menceritakan pengalaman pribadi.",
+            ""
+          ]
+        },
+        {
+          "id": "bg1-9",
+          "tanya": "Which one of the options below is an example of salutation?",
+          "opsi": [
+            "I look forward to hearing from you.",
+            "I would also appreciate it if you could explain the current issues with the delivery system.",
+            "To Whom It May Concern",
+            "I hope this email finds you well."
+          ],
+          "kunci": 2,
+          "jelas": "Salutation adalah salam atau sapaan pembuka dalam surat/email. To Whom It May Concern digunakan ketika nama penerima tidak diketahui.",
+          "jelasOpsi": [
+            "Kalimat penutup.",
+            "Permintaan informasi pada bagian isi.",
+            "",
+            "Kalimat pembuka setelah salam, bukan salutation itu sendiri."
+          ]
+        },
+        {
+          "id": "bg1-10",
+          "tanya": "Which one of the expressions below can be found in the opening of an email?",
+          "opsi": [
+            "I look forward to hearing from you.",
+            "To Whom It May Concern",
+            "hope this email finds you well.",
+            "I would also appreciate it if you could explain the current issues with the delivery system."
+          ],
+          "kunci": 2,
+          "jelas": "[PERIKSA] Kunci bank soal C. Maksud jawaban dapat dipahami, tetapi pilihan C kehilangan subjek I. Mengikuti kunci bank soal. Ungkapan I hope this email finds you well lazim digunakan pada bagian pembuka email setelah salam. Namun, pilihan C dalam naskah sumber tidak mencantumkan subjek I, sehingga bentuk kalimatnya tidak lengkap.",
+          "jelasOpsi": [
+            "Umumnya penutup.",
+            "Salutation/sapaan.",
+            "",
+            "Permintaan informasi yang lebih cocok pada bagian isi."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bagian2",
+      "judul": "Bagian 2",
+      "soal": [
+        {
+          "id": "bg2-1",
+          "tanya": "Which one of the expressions below can be found in a body email?",
+          "opsi": [
+            "I hope this email finds you well.",
+            "I look forward to hearing from you.",
+            "I would also appreciate it if you could explain the current issues with the delivery system.",
+            "To Whom It May Concern"
+          ],
+          "kunci": 2,
+          "jelas": "Body adalah bagian utama email yang memuat informasi, penjelasan, pertanyaan, atau permintaan. Kalimat C berisi permintaan penjelasan sehingga tepat ditempatkan pada bagian isi.",
+          "jelasOpsi": [
+            "Pembuka.",
+            "Penutup.",
+            "",
+            "Sapaan pembuka."
+          ]
+        },
+        {
+          "id": "bg2-2",
+          "tanya": "Which one of the options below is an example of closing in an email?",
+          "opsi": [
+            "I look forward to hearing from you.",
+            "I would also appreciate it if you could explain the current issues with the delivery system.",
+            "To Whom It May Concern",
+            "I hope this email finds you well."
+          ],
+          "kunci": 0,
+          "jelas": "Kalimat tersebut menyatakan harapan untuk menerima balasan dan lazim digunakan menjelang akhir email, sebelum salam penutup atau tanda tangan.",
+          "jelasOpsi": [
+            "",
+            "Permintaan informasi untuk bagian isi.",
+            "Sapaan pembuka.",
+            "Kalimat pembuka yang menunjukkan kesopanan."
+          ]
+        },
+        {
+          "id": "bg2-3",
+          "tanya": "The options below are examples of common sign off for emails written to an acquaintance, except...",
+          "opsi": [
+            "Best wishes,",
+            "Kind regards,",
+            "Cheers,",
+            "Sincerely,"
+          ],
+          "kunci": 3,
+          "jelas": "Sign-off adalah salam penutup sebelum nama pengirim. Best wishes, Kind regards, dan Cheers dapat digunakan dalam komunikasi yang relatif akrab. Sincerely cenderung lebih formal dan lazim digunakan dalam surat resmi.",
+          "jelasOpsi": [
+            "Penutup yang ramah.",
+            "Sopan dan umum.",
+            "Lebih santai.",
+            ""
+          ]
+        },
+        {
+          "id": "bg2-4",
+          "tanya": "Which one of the options below is a part of an email?",
+          "opsi": [
+            "Title",
+            "Objective",
+            "Attachment",
+            "Conclusion"
+          ],
+          "kunci": 2,
+          "jelas": "Attachment adalah berkas yang disertakan dalam email, misalnya dokumen, gambar, atau spreadsheet. Attachment merupakan fitur/bagian yang umum pada email.",
+          "jelasOpsi": [
+            "Bukan bagian standar email; istilah yang lazim adalah subject.",
+            "Bukan komponen baku email.",
+            "",
+            "Dapat menjadi bagian isi tulisan, tetapi bukan komponen teknis email yang dimaksud."
+          ]
+        },
+        {
+          "id": "bg2-5",
+          "tanya": "Which one of the options below is a part of a letter?",
+          "opsi": [
+            "BCC",
+            "Title",
+            "CC",
+            "Complimentary close"
+          ],
+          "kunci": 3,
+          "jelas": "Complimentary close adalah ungkapan penutup sopan dalam surat, misalnya Yours sincerely atau Yours faithfully. BCC dan CC lebih berkaitan dengan pengiriman email.",
+          "jelasOpsi": [
+            "Fitur email untuk menyembunyikan penerima lain.",
+            "Bukan istilah bagian surat yang paling tepat pada konteks ini.",
+            "Fitur email untuk penerima tembusan.",
+            ""
+          ]
+        },
+        {
+          "id": "bg2-6",
+          "tanya": "The options below are different kinds of business documents, except...",
+          "opsi": [
+            "Email",
+            "Dissertation",
+            "Report",
+            "Proposal"
+          ],
+          "kunci": 1,
+          "jelas": "Email, report, dan proposal merupakan dokumen yang umum digunakan dalam aktivitas bisnis. Dissertation adalah karya ilmiah akademik yang disusun untuk memenuhi persyaratan gelar pendidikan tinggi, bukan jenis dokumen bisnis dalam pengelompokan soal ini.",
+          "jelasOpsi": [
+            "Dokumen komunikasi bisnis.",
+            "",
+            "Dokumen laporan bisnis.",
+            "Dokumen usulan bisnis/proyek."
+          ]
+        },
+        {
+          "id": "bg2-7",
+          "tanya": "The options below are parts of a report except...",
+          "opsi": [
+            "Title",
+            "Introduction",
+            "Conclusion",
+            "Salutation"
+          ],
+          "kunci": 3,
+          "jelas": "Laporan umumnya memiliki judul, pendahuluan, isi/temuan, dan kesimpulan. Salutation merupakan salam pembuka yang digunakan dalam surat atau email, bukan bagian utama laporan.",
+          "jelasOpsi": [
+            "Bagian laporan.",
+            "Bagian laporan.",
+            "Bagian laporan.",
+            ""
+          ]
+        },
+        {
+          "id": "bg2-8",
+          "tanya": "Which one of the options below is an example of expression of request for a catalogue?",
+          "opsi": [
+            "We would like you to send us a copy of your latest catalogue along with copies of descriptive leaflets that could be passed on to prospective customers.",
+            "You are always such a help, and I appreciate your support in every way.",
+            "We are pleased to enclose the required information requested in the form of our pricelist meant to be passed on to customers.",
+            "I am disappointed because I was billed the wrong amount."
+          ],
+          "kunci": 0,
+          "jelas": "Pilihan A secara eksplisit meminta penerima mengirimkan katalog terbaru beserta brosur deskriptif yang dapat diberikan kepada calon pelanggan.",
+          "jelasOpsi": [
+            "",
+            "Ungkapan terima kasih/apresiasi.",
+            "Respons pengiriman daftar harga, bukan permintaan katalog.",
+            "Ungkapan keluhan atas tagihan yang salah."
+          ]
+        },
+        {
+          "id": "bg2-9",
+          "tanya": "Which one of the options below is an example of an expression of responding to a request for a price list?",
+          "opsi": [
+            "I am confident that my experience as well as my research and writing skills qualify me for consideration.",
+            "We are pleased to enclose the required information requested in the form of our pricelist meant to be passed on to customers.",
+            "In response to your enquiry, please find attached to this email our price list.",
+            "I have forwarded your complaint to our corporate customer experience team and we will do everything we can to make sure this doesn't happen again."
+          ],
+          "kunci": 2,
+          "jelas": "[PERIKSA] Kunci bank soal C. B dan C sama-sama dapat menjadi respons atas permintaan daftar harga. Mengikuti kunci bank soal. Kalimat C secara langsung menyebut in response to your enquiry dan menyatakan bahwa daftar harga dilampirkan. Kalimat B juga dapat berfungsi sebagai respons karena menyebut informasi yang diminta dalam bentuk pricelist.",
+          "jelasOpsi": [
+            "Pernyataan kualifikasi dalam lamaran kerja.",
+            "Dapat menjadi respons atas permintaan daftar harga; redaksinya menyebut informasi yang diminta berupa pricelist.",
+            "",
+            "Respons terhadap keluhan pelanggan."
+          ]
+        },
+        {
+          "id": "bg2-10",
+          "tanya": "Which one of the options below is an example of expression of complaint?",
+          "opsi": [
+            "We would like you to send us a copy of your latest catalogue along with copies of descriptive leaflets that could be passed on to prospective customers.",
+            "You are always such a help, and I appreciate your support in every way.",
+            "I am disappointed because I was billed the wrong amount.",
+            "We are pleased to enclose the required information requested in the form of our pricelist meant to be passed on to customers."
+          ],
+          "kunci": 2,
+          "jelas": "Complaint adalah keluhan terhadap produk, layanan, atau proses. Kalimat C menyatakan ketidakpuasan karena jumlah tagihan yang dikenakan tidak benar.",
+          "jelasOpsi": [
+            "Permintaan katalog.",
+            "Apresiasi atau ucapan terima kasih.",
+            "",
+            "Respons pengiriman informasi/daftar harga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bagian3",
+      "judul": "Bagian 3",
+      "soal": [
+        {
+          "id": "bg3-1",
+          "tanya": "Which one of the options below is an example of an expression of responding to a customer's complaint?",
+          "opsi": [
+            "I am confident that my experience as well as my research and writing skills qualify me for consideration.",
+            "We are pleased to enclose the required information requested in the form of our pricelist meant to be passed on to customers.",
+            "I have forwarded your complaint to our corporate customer experience team and we will do everything we can to make sure this doesn't happen again.",
+            "In response to your enquiry, please find attached to this email our price list."
+          ],
+          "kunci": 2,
+          "jelas": "Kalimat C menyatakan bahwa keluhan telah diteruskan kepada tim layanan pelanggan dan perusahaan akan berupaya mencegah masalah serupa. Ini merupakan respons terhadap keluhan.",
+          "jelasOpsi": [
+            "Pernyataan kualifikasi pelamar kerja.",
+            "Respons pengiriman daftar harga.",
+            "",
+            "Respons atas permintaan daftar harga."
+          ]
+        },
+        {
+          "id": "bg3-2",
+          "tanya": "Which one of the options below is an expression that you will find in an opening of a thanking letter/email?",
+          "opsi": [
+            "I am disappointed because I was billed the wrong amount.",
+            "I would like to thank you for the invaluable support you provided to me during my recent career search.",
+            "I'm happy to report that I have just accepted a new position with XYZ Company.",
+            "Again, thank you very much. I greatly appreciate your assistance with my job search."
+          ],
+          "kunci": 1,
+          "jelas": "Kalimat B langsung menyampaikan tujuan surat, yaitu berterima kasih atas dukungan yang diberikan selama pencarian pekerjaan. Karena berisi pernyataan terima kasih utama, kalimat ini sesuai untuk pembuka surat ucapan terima kasih.",
+          "jelasOpsi": [
+            "Keluhan tentang tagihan.",
+            "",
+            "Memberitahukan bahwa pengirim menerima pekerjaan baru.",
+            "Ungkapan terima kasih ulang yang lebih cocok untuk penutup."
+          ]
+        },
+        {
+          "id": "bg3-3",
+          "tanya": "Which one of the options below is an expression that you will find in a body of a thanking letter/email?",
+          "opsi": [
+            "I am disappointed because I was billed the wrong amount.",
+            "I would like to thank you for the invaluable support you provided to me during my recent career search.",
+            "Again, thank you very much. I greatly appreciate your assistance with my job search.",
+            "I'm happy to report that I have just accepted a new position with XYZ Company."
+          ],
+          "kunci": 3,
+          "jelas": "Bagian isi surat dapat menjelaskan perkembangan atau hasil yang berkaitan dengan bantuan yang diterima. Kalimat D memberikan kabar bahwa pengirim telah memperoleh pekerjaan baru, yang dapat menjadi informasi lanjutan dalam isi surat ucapan terima kasih.",
+          "jelasOpsi": [
+            "Keluhan.",
+            "Pernyataan terima kasih yang lebih cocok sebagai pembuka.",
+            "Ungkapan terima kasih ulang yang cocok sebagai penutup.",
+            ""
+          ]
+        },
+        {
+          "id": "bg3-4",
+          "tanya": "Which one of the options below is an expression that you will find in a closing of a thanking letter/email?",
+          "opsi": [
+            "I would like to thank you for the invaluable support you provided to me during my recent career search.",
+            "I'm happy to report that I have just accepted a new position with XYZ Company.",
+            "I am disappointed because I was billed the wrong amount.",
+            "Again, thank you very much. I greatly appreciate your assistance with my job search."
+          ],
+          "kunci": 3,
+          "jelas": "Kalimat D diawali Again, thank you very much dan menegaskan kembali apresiasi. Pengulangan ucapan terima kasih seperti ini lazim digunakan untuk menutup surat.",
+          "jelasOpsi": [
+            "Pernyataan terima kasih utama yang cocok sebagai pembuka.",
+            "Informasi kabar baru.",
+            "Keluhan.",
+            ""
+          ]
+        },
+        {
+          "id": "bg3-5",
+          "tanya": "Which one of the options below is an example of a statement in a cover letter explaining about yourself?",
+          "opsi": [
+            "Thank you for considering my application and I welcome the opportunity to discuss how my qualifications would be and your company's continued success.",
+            "The opportunity to potentially work for your company, which has been recognized as one of the largest manufacturing companies in the world, excites me as I continue to seek new challenges.",
+            "I have excellent time-management skills, possess the ability to work any shift, am eager to learn and always strive to make everyone feel welcome and comfortable.",
+            "I am delighted to have the opportunity to apply for the position of Administrative Specialist at your company that you advertised this week in the Daily Herald Tribune."
+          ],
+          "kunci": 2,
+          "jelas": "Kalimat C menjelaskan kemampuan dan karakteristik pelamar, seperti manajemen waktu, fleksibilitas jadwal kerja, kemauan belajar, dan kemampuan menciptakan suasana nyaman. Ini merupakan bagian yang memperkenalkan kualifikasi diri.",
+          "jelasOpsi": [
+            "Ungkapan terima kasih dan harapan tindak lanjut.",
+            "Menjelaskan ketertarikan pada perusahaan.",
+            "",
+            "Menjelaskan posisi yang dilamar dan sumber iklan pekerjaan."
+          ]
+        },
+        {
+          "id": "bg3-6",
+          "tanya": "Which one of the options below is an example of a statement in a cover letter explaining where you found the job ads?",
+          "opsi": [
+            "The opportunity to potentially work for your company, which has been recognized as one of the largest manufacturing companies in the world, excites me as I continue to seek new challenges.",
+            "I have excellent time-management skills, possess the ability to work any shift, am eager to learn and always strive to make everyone feel welcome and comfortable.",
+            "I am delighted to have the opportunity to apply for the position of Administrative Specialist at your company that you advertised this week in the Daily Herald Tribune.",
+            "Thank you for considering my application and I welcome the opportunity to discuss how my qualifications would be and your company's continued success."
+          ],
+          "kunci": 2,
+          "jelas": "Kalimat C menyebutkan bahwa posisi Administrative Specialist diiklankan pada Daily Herald Tribune. Penyebutan media dan iklan tersebut menjelaskan sumber informasi lowongan.",
+          "jelasOpsi": [
+            "Menjelaskan ketertarikan terhadap perusahaan.",
+            "Menjelaskan keterampilan pelamar.",
+            "",
+            "Ungkapan terima kasih dan penutup."
+          ]
+        },
+        {
+          "id": "bg3-7",
+          "tanya": "Which one of the options below is an example expression of a statement in a cover letter explaining your interest in the position advertised?",
+          "opsi": [
+            "The opportunity to potentially work for your company, which has been recognized as one of the largest manufacturing companies in the world, excites me as I continue to seek new challenges.",
+            "I am delighted to have the opportunity to apply for the position of Administrative Specialist at your company that you advertised this week in the Daily Herald Tribune.",
+            "I have excellent time-management skills, possess the ability to work any shift, am eager to learn and always strive to make everyone feel welcome and comfortable.",
+            "Thank you for considering my application and I welcome the opportunity to discuss how my qualifications would be and your company's continued success."
+          ],
+          "kunci": 0,
+          "jelas": "Kalimat A menyatakan bahwa kesempatan bekerja di perusahaan tersebut menarik bagi pelamar karena reputasi perusahaan dan tantangan baru yang dicari. Pernyataan ini menjelaskan alasan ketertarikan terhadap posisi/perusahaan.",
+          "jelasOpsi": [
+            "",
+            "Menjelaskan posisi yang dilamar dan sumber iklan.",
+            "Menjelaskan kemampuan pelamar.",
+            "Menyampaikan terima kasih dan harapan tindak lanjut."
+          ]
+        },
+        {
+          "id": "bg3-8",
+          "tanya": "Which one of the options below is an example of a statement in a cover letter thanking the recruitment officer?",
+          "opsi": [
+            "Thank you for considering my application and I welcome the opportunity to discuss how my qualifications would be and your company's continued success.",
+            "I have excellent time-management skills, possess the ability to work any shift, am eager to learn and always strive to make everyone feel welcome and comfortable.",
+            "The opportunity to potentially work for your company, which has been recognized as one of the largest manufacturing companies in the world, excites me as I continue to seek new challenges.",
+            "I am delighted to have the opportunity to apply for the position of Administrative Specialist at your company that you advertised this week in the Daily Herald Tribune."
+          ],
+          "kunci": 0,
+          "jelas": "[PERIKSA] Kunci bank soal A. Bagian awal A tepat, tetapi kelanjutan kalimatnya tidak gramatikal. Mengikuti kunci bank soal. Pilihan A diawali dengan Thank you for considering my application, yang jelas merupakan ungkapan terima kasih kepada pihak perekrut. Namun, bagian lanjutan I welcome the opportunity to discuss how my qualifications would be and your company's continued success tidak gramatikal dan maknanya tidak jelas.",
+          "jelasOpsi": [
+            "",
+            "Menjelaskan keterampilan pelamar.",
+            "Menjelaskan ketertarikan pada perusahaan.",
+            "Menjelaskan posisi yang dilamar dan sumber iklan."
+          ]
+        },
+        {
+          "id": "bg3-9",
+          "tanya": "The options below are essential parts of a CV, except...",
+          "opsi": [
+            "Reference list",
+            "History of courses",
+            "LinkedIn account",
+            "Training experience"
+          ],
+          "kunci": 2,
+          "jelas": "[PERIKSA] Kunci bank soal C. LinkedIn bukan komponen wajib; daftar referensi juga sering bersifat opsional. Mengikuti kunci bank soal. CV umumnya memuat riwayat pendidikan, pengalaman kerja, pelatihan, keterampilan, dan informasi relevan lainnya. Akun LinkedIn dapat dicantumkan sebagai tautan profesional, tetapi bukan komponen wajib bagi setiap CV.",
+          "jelasOpsi": [
+            "Referensi dapat dicantumkan, tetapi dalam banyak format modern bersifat opsional atau diberikan jika diminta.",
+            "Riwayat pendidikan/kursus yang relevan dapat menjadi bagian CV.",
+            "",
+            "Pelatihan relevan dapat dicantumkan."
+          ]
+        },
+        {
+          "id": "bg3-10",
+          "tanya": "Which one of the options below is an expression of making an appointment?",
+          "opsi": [
+            "Would you like to meet me at your office tomorrow afternoon?",
+            "Would it be possible to arrange another time later in the week?",
+            "Could you explain the first part please?",
+            "Am I making myself clear?"
+          ],
+          "kunci": 0,
+          "jelas": "Kalimat A mengusulkan pertemuan pada waktu dan tempat tertentu, sehingga merupakan ungkapan membuat janji/pertemuan.",
+          "jelasOpsi": [
+            "",
+            "Meminta penjadwalan ulang.",
+            "Meminta penjelasan.",
+            "Memastikan apakah pesan dipahami."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bagian4",
+      "judul": "Bagian 4",
+      "soal": [
+        {
+          "id": "bg4-1",
+          "tanya": "Which one of the options below is an expression of rescheduling an appointment?",
+          "opsi": [
+            "Would you like to meet me at your office tomorrow afternoon?",
+            "Could you explain the first part please?",
+            "Am I making myself clear?",
+            "Would it be possible to arrange another time later in the week?"
+          ],
+          "kunci": 3,
+          "jelas": "Rescheduling berarti mengubah jadwal yang sudah direncanakan. Frasa another time later in the week menunjukkan permintaan untuk mencari waktu pengganti.",
+          "jelasOpsi": [
+            "Mengusulkan pertemuan baru.",
+            "Meminta penjelasan.",
+            "Memastikan pemahaman.",
+            ""
+          ]
+        },
+        {
+          "id": "bg4-2",
+          "tanya": "Which one of the options below is an expression requesting an explanation?",
+          "opsi": [
+            "Am I making myself clear?",
+            "Could you explain the first part please?",
+            "Would you like to meet me at your office tomorrow afternoon?",
+            "Would it be possible to arrange another time later in the week?"
+          ],
+          "kunci": 1,
+          "jelas": "Kalimat B secara langsung meminta lawan bicara menjelaskan bagian pertama. Kata explain menunjukkan permintaan penjelasan.",
+          "jelasOpsi": [
+            "Memastikan apakah penjelasan pembicara sudah jelas.",
+            "",
+            "Mengusulkan pertemuan.",
+            "Meminta penjadwalan ulang."
+          ]
+        },
+        {
+          "id": "bg4-3",
+          "tanya": "Which one of the options below is an expression of agreeing to a negotiation?",
+          "opsi": [
+            "We are ready to accept your offer; however, there would be one condition.",
+            "I believe we can both agree that this solution is fair.",
+            "Unfortunately, it seems that we are unable to reach consensus here.",
+            "I'm afraid I had something different in mind."
+          ],
+          "kunci": 1,
+          "jelas": "Kalimat B menyatakan bahwa kedua pihak dapat menyepakati solusi yang dianggap adil. Ini merupakan ungkapan persetujuan dalam negosiasi.",
+          "jelasOpsi": [
+            "Menerima tawaran dengan satu syarat; lebih tepat sebagai penerimaan bersyarat/kompromi.",
+            "",
+            "Menyatakan kegagalan mencapai kesepakatan.",
+            "Menyatakan ketidaksetujuan terhadap tawaran."
+          ]
+        },
+        {
+          "id": "bg4-4",
+          "tanya": "Which one of the options below is an expression of refusing an offer in a negotiation?",
+          "opsi": [
+            "I'm afraid I had something different in mind.",
+            "Unfortunately, it seems that we are unable to reach consensus here.",
+            "We are ready to accept your offer; however, there would be one condition.",
+            "I believe we can both agree that this solution is fair."
+          ],
+          "kunci": 0,
+          "jelas": "Ungkapan I had something different in mind menunjukkan bahwa tawaran yang diajukan tidak sesuai dengan harapan atau usulan pembicara. Penolakan disampaikan secara tidak langsung dan sopan.",
+          "jelasOpsi": [
+            "",
+            "Menyatakan negosiasi tidak mencapai konsensus atau berakhir buntu.",
+            "Menerima tawaran dengan syarat.",
+            "Menyatakan kesepakatan."
+          ]
+        },
+        {
+          "id": "bg4-5",
+          "tanya": "Which one of the options below is an example expression of breaking off a negotiation?",
+          "opsi": [
+            "We are ready to accept your offer; however, there would be one condition.",
+            "I'm afraid I had something different in mind.",
+            "I believe we can both agree that this solution is fair.",
+            "Unfortunately, it seems that we are unable to reach consensus here."
+          ],
+          "kunci": 3,
+          "jelas": "Breaking off a negotiation berarti menghentikan negosiasi karena pihak-pihak yang terlibat tidak dapat mencapai kesepakatan. Kalimat D menyatakan tidak tercapainya konsensus.",
+          "jelasOpsi": [
+            "Menerima tawaran dengan syarat.",
+            "Menyampaikan perbedaan keinginan.",
+            "Menyatakan kesepakatan.",
+            ""
+          ]
+        },
+        {
+          "id": "bg4-6",
+          "tanya": "Which one of the options below is an example expression of compromising in a negotiation?",
+          "opsi": [
+            "I'm afraid I had something different in mind.",
+            "We are ready to accept your offer; however, there would be one condition.",
+            "I believe we can both agree that this solution is fair.",
+            "Unfortunately, it seems that we are unable to reach consensus here."
+          ],
+          "kunci": 1,
+          "jelas": "Kompromi terjadi ketika pihak-pihak bersedia menyesuaikan tuntutan atau menerima kesepakatan dengan syarat tertentu. Kalimat B menyatakan kesediaan menerima tawaran dengan satu kondisi.",
+          "jelasOpsi": [
+            "Menyatakan perbedaan pendapat.",
+            "",
+            "Menyatakan bahwa solusi sudah adil dan dapat disepakati.",
+            "Menyatakan tidak tercapainya konsensus."
+          ]
+        },
+        {
+          "id": "bg4-7",
+          "tanya": "Which expression below is commonly found in a summary?",
+          "opsi": [
+            "However",
+            "Nevertheless",
+            "To begin with",
+            "To sum up"
+          ],
+          "kunci": 3,
+          "jelas": "To sum up berarti “sebagai rangkuman” atau “untuk menyimpulkan”. Ungkapan ini digunakan untuk memperkenalkan ringkasan gagasan utama.",
+          "jelasOpsi": [
+            "Menunjukkan pertentangan.",
+            "Menunjukkan pertentangan/konsesi.",
+            "Menandai awal urutan penjelasan.",
+            ""
+          ]
+        },
+        {
+          "id": "bg4-8",
+          "tanya": "Do you put ... sugar in my tea? It's too sweet.",
+          "opsi": [
+            "a lot of",
+            "Several",
+            "Many",
+            "Any"
+          ],
+          "kunci": 0,
+          "jelas": "Sugar merupakan kata benda tidak dapat dihitung (uncountable noun). Frasa a lot of dapat digunakan untuk menyatakan jumlah yang banyak pada kata benda yang dapat maupun tidak dapat dihitung. Konteks “It's too sweet” menunjukkan jumlah gula yang banyak.",
+          "jelasOpsi": [
+            "",
+            "Digunakan dengan kata benda jamak yang dapat dihitung.",
+            "Digunakan dengan kata benda jamak yang dapat dihitung.",
+            "Umumnya digunakan dalam pertanyaan/kalimat negatif, tetapi tidak paling sesuai dengan maksud pernyataan tentang jumlah gula yang terlalu banyak."
+          ]
+        },
+        {
+          "id": "bg4-9",
+          "tanya": "Marla:\nPatta: It costs about Rp1.700.000",
+          "opsi": [
+            "What time does the first flight by Garuda leave for Makassar?",
+            "Could you give me the flight schedule to Makassar, please?",
+            "How much does the Garuda ticket to Makassar cost?",
+            "Excuse me. Is there still a flight to Makasar."
+          ],
+          "kunci": 2,
+          "jelas": "Jawaban It costs about Rp1.700.000 memberikan informasi harga. Pertanyaan yang sesuai adalah pertanyaan tentang biaya, dengan pola How much does ... cost?",
+          "jelasOpsi": [
+            "Menanyakan waktu keberangkatan penerbangan pertama.",
+            "Meminta jadwal penerbangan.",
+            "",
+            "Menanyakan apakah masih ada penerbangan, bukan harga."
+          ]
+        },
+        {
+          "id": "bg4-10",
+          "tanya": "Buyer: ... I want to buy a kilo of mango.\nSeller: Yes, here you are, two thousand rupiah.",
+          "opsi": [
+            "Do you have a change for ten thousand rupiah?",
+            "How much does a kilo of mango cost?",
+            "How many mangoes do you need?",
+            "Do you want some mangoes?"
+          ],
+          "kunci": 0,
+          "jelas": "[PERIKSA] Kunci bank soal A. Dialog tidak mendukung jawaban A. B lebih dekat jika maksudnya menanyakan harga, tetapi susunan dialog perlu diperbaiki. Mengikuti kunci bank soal. Pilihan A menanyakan apakah penjual memiliki uang kembalian untuk uang sepuluh ribu rupiah. Namun, respons penjual Yes, here you are, two thousand rupiah tidak secara logis menjawab pertanyaan tentang uang kembalian. Pilihan B menanyakan harga satu kilogram mangga, tetapi respons “two thousand rupiah” lebih cocok menjadi jawaban atas pertanyaan harga daripada pertanyaan uang kembalian. Susunan dialog yang diberikan tampaknya tidak lengkap atau salah penempatan tanda baca.",
+          "jelasOpsi": [
+            "",
+            "Menanyakan harga satu kilogram mangga; paling dekat dengan jawaban harga “two thousand rupiah”, tetapi setelah itu frasa I want to buy... seharusnya menjadi giliran berikutnya.",
+            "Menanyakan jumlah mangga yang dibutuhkan; tidak dijawab oleh informasi harga.",
+            "Menawarkan mangga; respons “Yes, here you are...” mungkin dapat mengikuti tawaran, tetapi tidak menjelaskan harga secara alami."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bagian5",
+      "judul": "Bagian 5",
+      "soal": [
+        {
+          "id": "bg5-1",
+          "tanya": "A college ... never hurt anybody who was willing to learn after he got it.",
+          "opsi": [
+            "Educate",
+            "Educated",
+            "Education",
+            "Educating"
+          ],
+          "kunci": 2,
+          "jelas": "Kalimat tersebut membutuhkan kata benda (noun) untuk melengkapi frasa A college .... Pilihan C, education, berarti pendidikan. Frasa college education berarti pendidikan perguruan tinggi. Kalimat lengkapnya: A college education never hurt anybody who was willing to learn after he got it. Artinya: \"Pendidikan perguruan tinggi tidak pernah merugikan siapa pun yang bersedia belajar setelah memperolehnya.\"",
+          "jelasOpsi": [
+            "Merupakan kata kerja (verb) yang berarti mendidik. Tidak sesuai dengan posisi yang membutuhkan kata benda.",
+            "Dapat berfungsi sebagai kata kerja bentuk lampau atau kata sifat yang berarti berpendidikan. Tidak sesuai untuk membentuk frasa college education.",
+            "",
+            "Merupakan bentuk -ing dari educate yang dapat berfungsi sebagai gerund atau present participle. Tidak membentuk frasa yang tepat dalam kalimat ini."
+          ]
+        },
+        {
+          "id": "bg5-2",
+          "tanya": "The word \"inactive\" is constructed by...",
+          "opsi": [
+            "(in-) + active",
+            "(in-) + act + (-ive)",
+            "inact + (-ive)",
+            "(in-) + action + (-ive)"
+          ],
+          "kunci": 0,
+          "jelas": "Kata inactive terbentuk dari: - Prefix in- yang berarti tidak atau bukan. - Kata dasar active yang berarti aktif. Ketika prefix in- ditambahkan pada kata active, terbentuk kata inactive yang berarti tidak aktif. Struktur pembentukannya: in- + active = inactive Contoh penggunaan: The account has been inactive for six months. Artinya: \"Akun tersebut sudah tidak aktif selama enam bulan.\"",
+          "jelasOpsi": [
+            "",
+            "Tidak sesuai dengan pembagian langsung kata yang dimaksud dalam soal. Kata inactive dibentuk dari prefix in- dan kata active, bukan dengan memecah active kembali menjadi act + -ive pada tahap pembentukan ini.",
+            "Salah karena inact bukan bentuk dasar yang digunakan dalam konstruksi kata tersebut.",
+            "Salah karena kata action bukan dasar pembentuk langsung dari inactive."
+          ]
+        },
+        {
+          "id": "bg5-3",
+          "tanya": "Complete the following paragraph by filling in blank (1) with the appropriate option provided below:\n\nAlbert Einstein (1879-1955), German-born .......... (1) physicist and Nobel laureate, best known as the .......... (2) of the special and general theories of relativity and for his bold hypothesis concerning the particle nature of light. He is perhaps the most well-known scientist of the 20th century. Einstein was .......... (3) in Ulm on March 14, 1879, and spent his youth in Munich, where his family owned a small shop that manufactured electric machinery. He did not .......... (4) until the age of three, but even as a youth he .......... (5) a brilliant curiosity about nature and an ability to understand difficult mathematical concepts. At the age of 12 he taught himself Euclidean geometry.",
+          "opsi": [
+            "American",
+            "America",
+            "Americanese",
+            "Americanize"
+          ],
+          "kunci": 0,
+          "jelas": "Bagian kosong memerlukan kata yang menjelaskan identitas kebangsaan atau asal kewarganegaraan seseorang dalam frasa German-born ... physicist. Kata American merupakan kata sifat (adjective) yang berarti orang Amerika atau berkaitan dengan Amerika. Kalimat yang terbentuk: Albert Einstein (1879-1955), German-born American physicist and Nobel laureate... Artinya: \"Albert Einstein (1879--1955), fisikawan Amerika kelahiran Jerman dan peraih Nobel...\"",
+          "jelasOpsi": [
+            "",
+            "Merupakan kata benda yang merujuk pada negara atau wilayah Amerika. Tidak sesuai untuk menerangkan kata physicist dalam konstruksi tersebut.",
+            "Bukan kata yang tepat untuk konteks identitas kewarganegaraan atau kebangsaan pada kalimat ini.",
+            "Merupakan kata kerja yang berarti menjadikan sesuatu bercorak Amerika atau menyesuaikan dengan budaya Amerika."
+          ]
+        },
+        {
+          "id": "bg5-4",
+          "tanya": "Complete the following paragraph by filling in blank (2) with the appropriate option provided below:\n\nAlbert Einstein (1879-1955), German-born .......... (1) physicist and Nobel laureate, best known as the .......... (2) of the special and general theories of relativity and for his bold hypothesis concerning the particle nature of light. He is perhaps the most well-known scientist of the 20th century. Einstein was .......... (3) in Ulm on March 14, 1879, and spent his youth in Munich, where his family owned a small shop that manufactured electric machinery. He did not .......... (4) until the age of three, but even as a youth he .......... (5) a brilliant curiosity about nature and an ability to understand difficult mathematical concepts. At the age of 12 he taught himself Euclidean geometry.",
+          "opsi": [
+            "create",
+            "creator",
+            "creating",
+            "creation"
+          ],
+          "kunci": 1,
+          "jelas": "Kalimat tersebut membutuhkan kata benda yang menunjukkan orang yang menciptakan atau mengembangkan suatu teori. Creator berarti pencipta atau orang yang menciptakan sesuatu. Frasa yang benar: The creator of the special and general theories of relativity. Artinya: \"Pencipta teori relativitas khusus dan umum.\"",
+          "jelasOpsi": [
+            "Merupakan kata kerja bentuk dasar yang berarti menciptakan. Tidak tepat setelah artikel the dalam konstruksi the ... of yang membutuhkan kata benda pelaku.",
+            "",
+            "Merupakan bentuk present participle atau gerund dari create. Tidak tepat untuk menyatakan identitas orang dalam frasa tersebut.",
+            "Merupakan kata benda yang berarti penciptaan atau hasil ciptaan, bukan orang yang menciptakan."
+          ]
+        },
+        {
+          "id": "bg5-5",
+          "tanya": "Complete the following paragraph by filling in blank (3) with the appropriate option provided below:\n\nAlbert Einstein (1879-1955), German-born .......... (1) physicist and Nobel laureate, best known as the .......... (2) of the special and general theories of relativity and for his bold hypothesis concerning the particle nature of light. He is perhaps the most well-known scientist of the 20th century. Einstein was .......... (3) in Ulm on March 14, 1879, and spent his youth in Munich, where his family owned a small shop that manufactured electric machinery. He did not .......... (4) until the age of three, but even as a youth he .......... (5) a brilliant curiosity about nature and an ability to understand difficult mathematical concepts. At the age of 12 he taught himself Euclidean geometry.",
+          "opsi": [
+            "born",
+            "borning",
+            "borned",
+            "birth"
+          ],
+          "kunci": 0,
+          "jelas": "Kalimat tersebut menggunakan ungkapan was born yang berarti \"dilahirkan\" atau \"lahir\". Born merupakan bentuk past participle dari kata kerja bear dalam konteks kelahiran. Struktur yang digunakan: Subject + was/were + born Kalimat lengkap: Einstein was born in Ulm on March 14, 1879. Artinya: \"Einstein lahir di Ulm pada 14 Maret 1879.\"",
+          "jelasOpsi": [
+            "",
+            "Bukan bentuk standar yang digunakan untuk menyatakan kelahiran seseorang.",
+            "Salah karena born sudah merupakan bentuk past participle yang benar. Kata borned tidak digunakan dalam konstruksi ini.",
+            "Merupakan kata benda yang berarti kelahiran, sehingga tidak tepat digunakan setelah was dalam struktur tersebut."
+          ]
+        },
+        {
+          "id": "bg5-6",
+          "tanya": "Complete the following paragraph by filling in blank (4) with the appropriate option provided below:\n\nAlbert Einstein (1879-1955), German-born .......... (1) physicist and Nobel laureate, best known as the .......... (2) of the special and general theories of relativity and for his bold hypothesis concerning the particle nature of light. He is perhaps the most well-known scientist of the 20th century. Einstein was .......... (3) in Ulm on March 14, 1879, and spent his youth in Munich, where his family owned a small shop that manufactured electric machinery. He did not .......... (4) until the age of three, but even as a youth he .......... (5) a brilliant curiosity about nature and an ability to understand difficult mathematical concepts. At the age of 12 he taught himself Euclidean geometry.",
+          "opsi": [
+            "talking",
+            "talked",
+            "talk",
+            "talks"
+          ],
+          "kunci": 2,
+          "jelas": "Kalimat tersebut menggunakan pola did not + base form. Kata did merupakan auxiliary verb dalam bentuk lampau. Apabila did atau did not digunakan, kata kerja utama harus kembali ke bentuk dasar (base form). Karena itu, bentuk yang tepat adalah talk. Kalimat lengkap: He did not talk until the age of three. Artinya: \"Dia tidak berbicara sampai berusia tiga tahun.\"",
+          "jelasOpsi": [
+            "Salah karena merupakan bentuk -ing dan tidak sesuai dengan pola did not + base form.",
+            "Salah karena merupakan bentuk lampau. Penanda waktu lampau sudah ditunjukkan oleh auxiliary did.",
+            "",
+            "Salah karena merupakan bentuk present tense untuk subjek orang ketiga tunggal, bukan bentuk yang digunakan setelah did not."
+          ]
+        },
+        {
+          "id": "bg5-7",
+          "tanya": "Complete the following paragraph by filling in blank (5) with the appropriate option provided below:\n\nAlbert Einstein (1879-1955), German-born .......... (1) physicist and Nobel laureate, best known as the .......... (2) of the special and general theories of relativity and for his bold hypothesis concerning the particle nature of light. He is perhaps the most well-known scientist of the 20th century. Einstein was .......... (3) in Ulm on March 14, 1879, and spent his youth in Munich, where his family owned a small shop that manufactured electric machinery. He did not .......... (4) until the age of three, but even as a youth he .......... (5) a brilliant curiosity about nature and an ability to understand difficult mathematical concepts. At the age of 12 he taught himself Euclidean geometry.",
+          "opsi": [
+            "shower",
+            "showed",
+            "showering",
+            "shown"
+          ],
+          "kunci": 1,
+          "jelas": "Kalimat tersebut menggunakan bentuk lampau untuk menceritakan pengalaman atau karakteristik Einstein ketika masih muda. Kata kerja showed merupakan bentuk past tense (verb 2) dari show, yang berarti menunjukkan. Frasa: He showed a brilliant curiosity about nature. Artinya: \"Dia menunjukkan rasa ingin tahu yang luar biasa terhadap alam.\"",
+          "jelasOpsi": [
+            "Berarti mandi atau pancuran. Tidak sesuai dengan konteks kalimat.",
+            "",
+            "Merupakan bentuk -ing dari shower, yang tidak sesuai dengan makna dan struktur kalimat.",
+            "Merupakan bentuk past participle (verb 3) dari show. Umumnya digunakan bersama auxiliary verb atau dalam konstruksi tertentu, bukan sebagai kata kerja utama tunggal dalam kalimat ini."
+          ]
+        },
+        {
+          "id": "bg5-8",
+          "tanya": "Read the following text carefully.\n\nAlfred Adler\nAlfred Adler (1870-1937), Austrian psychologist and psychiatrist, born in Vienna, and educated at Vienna University. After leaving the university he studied and was associated with Sigmund Freud, the founder of psychoanalysis. In 1911 Adler left the orthodox psychoanalytic school to found a neo-Freudian school of psychoanalysis. After 1926 he was a visiting professor at Columbia University, and in 1935 he and his family moved to the United States.\n\nIn his analysis of individual development, Adler stressed the sense of inferiority, rather than sexual drives, as the motivating force in human life. According to Adler, conscious or subconscious feelings of inferiority (to which he gave the name inferiority complex), combined with compensatory defense mechanisms, are the basic causes of psychopathological behavior. The function of the psychoanalyst, furthermore, is to discover and rationalize such feelings and break down the compensatory, neurotic will for power that they engender in the patient. Adler's works include The Theory and Practice of Individual Psychology (1918) and The Pattern of Life (1930).\n\nLook at the pronoun he in paragraph one. What does he refer to?",
+          "opsi": [
+            "Sigmund Freud",
+            "Vienna",
+            "Alfred Adler",
+            "Columbia University"
+          ],
+          "kunci": 2,
+          "jelas": "Kata he merupakan pronoun atau kata ganti orang ketiga tunggal untuk laki-laki. Untuk mengetahui referen kata he, kita perlu melihat subjek yang sedang dibicarakan dalam paragraf. Paragraf dimulai dengan nama Alfred Adler, kemudian menjelaskan bahwa setelah meninggalkan universitas, ia belajar dan berhubungan dengan Sigmund Freud. Pada kalimat: After leaving the university he studied and was associated with Sigmund Freud... Kata he mengacu kepada Alfred Adler, bukan Sigmund Freud.",
+          "jelasOpsi": [
+            "Salah. Freud merupakan orang yang disebutkan sebagai pihak yang berhubungan dengan Alfred Adler.",
+            "Salah. Vienna merupakan nama kota, bukan orang yang dapat digantikan dengan pronoun he.",
+            "",
+            "Salah. Merupakan nama universitas dan tidak sesuai dengan referen kata ganti he dalam kalimat tersebut."
+          ]
+        },
+        {
+          "id": "bg5-9",
+          "tanya": "Read the following text carefully.\n\nAlfred Adler\nAlfred Adler (1870-1937), Austrian psychologist and psychiatrist, born in Vienna, and educated at Vienna University. After leaving the university he studied and was associated with Sigmund Freud, the founder of psychoanalysis. In 1911 Adler left the orthodox psychoanalytic school to found a neo-Freudian school of psychoanalysis. After 1926 he was a visiting professor at Columbia University, and in 1935 he and his family moved to the United States.\n\nIn his analysis of individual development, Adler stressed the sense of inferiority, rather than sexual drives, as the motivating force in human life. According to Adler, conscious or subconscious feelings of inferiority (to which he gave the name inferiority complex), combined with compensatory defense mechanisms, are the basic causes of psychopathological behavior. The function of the psychoanalyst, furthermore, is to discover and rationalize such feelings and break down the compensatory, neurotic will for power that they engender in the patient. Adler's works include The Theory and Practice of Individual Psychology (1918) and The Pattern of Life (1930).\n\nWhat does they in paragraph two refer to?",
+          "opsi": [
+            "feelings",
+            "neurotic",
+            "the patient",
+            "defense mechanisms"
+          ],
+          "kunci": 1,
+          "jelas": "Kata they merupakan pronoun jamak yang berarti \"mereka\" atau \"hal-hal tersebut\". Untuk menemukan referennya, kita perlu memperhatikan susunan kalimat dan hubungan antargagasan. Dalam konteks paragraf, Adler menjelaskan perasaan inferior (feelings of inferiority) yang berkaitan dengan munculnya mekanisme pertahanan kompensatoris. Kalimat berikutnya menyebutkan bahwa perasaan tersebut dapat menghasilkan atau memunculkan keinginan neurotik untuk memperoleh kekuasaan. Dengan demikian, kata they merujuk kepada feelings, yaitu perasaan inferior yang sebelumnya dibahas.",
+          "jelasOpsi": [
+            "Benar. Merupakan kata benda jamak yang menjadi rujukan kata they dalam konteks kalimat.",
+            "",
+            "Salah. The patient merupakan orang yang mengalami dampak dari perasaan tersebut, bukan pihak yang menghasilkan keinginan neurotik.",
+            "Memiliki hubungan dengan pembahasan sebelumnya, tetapi referen yang paling dekat dan sesuai dalam konstruksi kalimat adalah feelings."
+          ]
+        },
+        {
+          "id": "bg5-10",
+          "tanya": "Read the following text carefully.\n\nAlfred Adler\nAlfred Adler (1870-1937), Austrian psychologist and psychiatrist, born in Vienna, and educated at Vienna University. After leaving the university he studied and was associated with Sigmund Freud, the founder of psychoanalysis. In 1911 Adler left the orthodox psychoanalytic school to found a neo-Freudian school of psychoanalysis. After 1926 he was a visiting professor at Columbia University, and in 1935 he and his family moved to the United States.\n\nIn his analysis of individual development, Adler stressed the sense of inferiority, rather than sexual drives, as the motivating force in human life. According to Adler, conscious or subconscious feelings of inferiority (to which he gave the name inferiority complex), combined with compensatory defense mechanisms, are the basic causes of psychopathological behavior. The function of the psychoanalyst, furthermore, is to discover and rationalize such feelings and break down the compensatory, neurotic will for power that they engender in the patient. Adler's works include The Theory and Practice of Individual Psychology (1918) and The Pattern of Life (1930).\n\nWhat does it meant by associated in paragraph 1?",
+          "opsi": [
+            "opponent",
+            "correlated",
+            "assorted",
+            "separated"
+          ],
+          "kunci": 1,
+          "jelas": "[PERIKSA] Kunci bank soal B. Correlated hanya pilihan terdekat; connected/affiliated lebih alami untuk konteks hubungan antarorang. Mengikuti kunci bank soal. Kata associated berasal dari kata kerja associate, yang berarti menghubungkan, mengaitkan, atau memiliki hubungan dengan seseorang atau sesuatu. Dalam konteks bacaan, Alfred Adler belajar dan memiliki hubungan atau keterkaitan dengan Sigmund Freud. Dari pilihan yang tersedia, correlated merupakan pilihan dengan makna yang paling dekat karena menunjukkan adanya hubungan atau keterkaitan. Namun, dalam konteks hubungan antarindividu, kata associated lebih alami diterjemahkan sebagai connected atau affiliated with daripada correlated.",
+          "jelasOpsi": [
+            "Berarti lawan atau pihak yang menentang. Tidak sesuai karena associated tidak berarti menjadi lawan seseorang.",
+            "",
+            "Berarti beragam atau terdiri atas berbagai jenis. Tidak berhubungan dengan makna associated dalam bacaan.",
+            "Berarti terpisah. Maknanya justru berlawanan dengan associated."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bagian6",
+      "judul": "Bagian 6",
+      "soal": [
+        {
+          "id": "bg6-1",
+          "tanya": "Read the following text carefully.\n\nAlfred Adler\nAlfred Adler (1870-1937), Austrian psychologist and psychiatrist, born in Vienna, and educated at Vienna University. After leaving the university he studied and was associated with Sigmund Freud, the founder of psychoanalysis. In 1911 Adler left the orthodox psychoanalytic school to found a neo-Freudian school of psychoanalysis. After 1926 he was a visiting professor at Columbia University, and in 1935 he and his family moved to the United States.\n\nIn his analysis of individual development, Adler stressed the sense of inferiority, rather than sexual drives, as the motivating force in human life. According to Adler, conscious or subconscious feelings of inferiority (to which he gave the name inferiority complex), combined with compensatory defense mechanisms, are the basic causes of psychopathological behavior. The function of the psychoanalyst, furthermore, is to discover and rationalize such feelings and break down the compensatory, neurotic will for power that they engender in the patient. Adler's works include The Theory and Practice of Individual Psychology (1918) and The Pattern of Life (1930).\n\nWhat is the antonyms of the word discover in paragraph 2?",
+          "opsi": [
+            "reveal",
+            "suppress",
+            "discreet",
+            "uncover"
+          ],
+          "kunci": 1,
+          "jelas": "[PERIKSA] Kunci bank soal B. Suppress merupakan pilihan terdekat, tetapi antonim langsung discover lebih tepat hide/conceal. Mengikuti kunci bank soal. Discover berarti menemukan, mengetahui, atau mengungkap sesuatu yang sebelumnya belum diketahui. Antonym adalah kata yang memiliki makna berlawanan. Pilihan B, suppress, berarti menekan, menahan, atau menghambat sesuatu agar tidak muncul atau diketahui. Dalam konteks pilihan yang tersedia, suppress merupakan kata yang paling mendekati makna berlawanan dari discover.",
+          "jelasOpsi": [
+            "Berarti mengungkapkan atau memperlihatkan sesuatu. Maknanya justru dekat dengan discover.",
+            "",
+            "Berarti berhati-hati atau menjaga kerahasiaan. Merupakan kata sifat dan bukan antonim langsung dari discover.",
+            "Berarti mengungkap atau menemukan sesuatu yang tersembunyi. Maknanya dekat dengan discover."
+          ]
+        },
+        {
+          "id": "bg6-2",
+          "tanya": "Read the following text carefully.\n\nAlfred Adler\nAlfred Adler (1870-1937), Austrian psychologist and psychiatrist, born in Vienna, and educated at Vienna University. After leaving the university he studied and was associated with Sigmund Freud, the founder of psychoanalysis. In 1911 Adler left the orthodox psychoanalytic school to found a neo-Freudian school of psychoanalysis. After 1926 he was a visiting professor at Columbia University, and in 1935 he and his family moved to the United States.\n\nIn his analysis of individual development, Adler stressed the sense of inferiority, rather than sexual drives, as the motivating force in human life. According to Adler, conscious or subconscious feelings of inferiority (to which he gave the name inferiority complex), combined with compensatory defense mechanisms, are the basic causes of psychopathological behavior. The function of the psychoanalyst, furthermore, is to discover and rationalize such feelings and break down the compensatory, neurotic will for power that they engender in the patient. Adler's works include The Theory and Practice of Individual Psychology (1918) and The Pattern of Life (1930).\n\nThe synonyms of the word engender in paragraph 2 is...",
+          "opsi": [
+            "cause",
+            "maneuver",
+            "engaged",
+            "prevent"
+          ],
+          "kunci": 0,
+          "jelas": "Engender merupakan kata kerja yang berarti menyebabkan, menghasilkan, atau menimbulkan sesuatu. Dalam teks Alfred Adler, kata tersebut digunakan pada bagian: ...the compensatory, neurotic will for power that they engender in the patient. Maknanya adalah perasaan inferior dapat menimbulkan atau menghasilkan keinginan neurotik untuk memperoleh kekuasaan dalam diri pasien. Karena cause berarti menyebabkan atau menjadi penyebab sesuatu, kata tersebut merupakan sinonim yang tepat.",
+          "jelasOpsi": [
+            "",
+            "Berarti mengatur gerakan, melakukan manuver, atau mengarahkan sesuatu dengan cara tertentu. Tidak sesuai dengan konteks.",
+            "Berarti terlibat, sibuk, atau bertunangan. Tidak memiliki makna yang sama dengan engender.",
+            "Berarti mencegah atau menghalangi. Maknanya justru berlawanan dengan cause."
+          ]
+        },
+        {
+          "id": "bg6-3",
+          "tanya": "Choose the correct answer for the following question.\nThe word disobedient is constructed by ...",
+          "opsi": [
+            "dis- + obedient",
+            "dis- + obey + -ent",
+            "disobey + -dient",
+            "disobe + -dient"
+          ],
+          "kunci": 1,
+          "jelas": "[PERIKSA] Kunci bank soal B. A dan B dapat diterima sebagai analisis morfologis pada tingkat berbeda. Mengikuti kunci bank soal. Kata disobedient berarti tidak patuh atau tidak taat. Kata tersebut dapat dianalisis berdasarkan unsur pembentuk katanya: - dis- merupakan prefix yang memberikan makna negatif atau berlawanan. - obey merupakan kata dasar yang berarti mematuhi. - -ent merupakan suffix yang dapat membentuk kata sifat. Pembentukan katanya: dis- + obey + -ent = disobedient Artinya: tidak patuh atau tidak taat.",
+          "jelasOpsi": [
+            "Secara morfologis juga dapat diterima karena prefix dis- ditambahkan langsung pada kata sifat obedient. Ini merupakan analisis pembentukan kata pada tingkat yang berbeda.",
+            "",
+            "Salah karena -dient bukan suffix yang digunakan dalam pembentukan kata tersebut.",
+            "Salah karena pembagian morfemnya tidak tepat. CATATAN VALIDASI: Pilihan A dan B sebenarnya dapat menggambarkan proses morfologis yang valid, tetapi pada tingkat analisis yang berbeda. - Analisis langsung: dis- + obedient. - Analisis lebih terperinci: dis- + obey + -ent. Dengan demikian, B merupakan jawaban sesuai kunci dan memperlihatkan unsur pembentuk katanya secara lebih terperinci. Namun, pilihan A juga tidak dapat dinyatakan salah sepenuhnya."
+          ]
+        },
+        {
+          "id": "bg6-4",
+          "tanya": "Choose the most appropriate word to complete the following sentence:\nEverything is funny as long as it is ... to somebody else.",
+          "opsi": [
+            "happening",
+            "happened",
+            "happen",
+            "happenation"
+          ],
+          "kunci": 0,
+          "jelas": "Bentuk is happening merupakan present continuous, yaitu be + verb-ing. Kalimat lengkapnya: Everything is funny as long as it is happening to somebody else. Artinya, sesuatu terasa lucu selama hal tersebut terjadi pada orang lain.",
+          "jelasOpsi": [
+            "",
+            "Past tense/past participle; tidak sesuai dengan pola ini.",
+            "Bentuk dasar; tidak dapat langsung mengikuti is dalam konstruksi present continuous.",
+            "Bukan bentuk kata standar."
+          ]
+        },
+        {
+          "id": "bg6-5",
+          "tanya": "Scan the following brochure to find the information quickly!\n\nSPRING LUNCHEON | Portage 11 a.m. to 2 p.m. on May 5 the annual Spring Luncheon/Bake Sale at First Presbyterian Church, 6225 Lute Road. Cost is $5 for adults and $3 for children 5 to 10 years old. A large variety of salads, ham, turkey, mostaccioli, breads, desserts, and beverages will be served. An assortment of homemade goodies will be available at the bake sale table. FYI: (219) 762-4914\n\nALONG THE SPECTRUM | Merrillville Merrillville Community Planetarium presents the public program Adventures Along the Spectrum at 7:30 tonight and Saturday at Clifford Pierce Middle School, 199 E. 70th Ave. This is a family presentation of a school program by third- to fifth-graders featuring Professor Photon discussing the invisible and eerie realms of the energy spectrum. A look at the spring sky follows. Admission is $3 for adults and $1.50 for children. Reserve seats or arrange for a private group show. FYI: (219) 650-5486\n\nGOOD TIME CHARLEY SINGLES DANCE | Schererville 7 p.m. Sunday at the Woodhollow Loft, 221 U.S. 41. Admission is $7 and $5 before 8:15 p.m. FYI: (219) 650-2111\n\nLEARN TO LINE DANCE | Schererville Line-dance lessons start Thursday at American Legion Post 485, 7485 Burr St. Warm up from 6 to 7 p.m. and learn to dance from 7 to 8 p.m. Thursdays. Cost for a six-week series is $35, or $6 per session. Sign up on the first night of classes. FYI: (219) 345-5732\n\nLINE DANCING CLASSES | Lansing 7 p.m. Wednesday join the fun and get that much-needed exercise at the beginning line dancing lessons at St. Kevin Church hall, 10509 Torrence Ave. FYI: (708) 978-1059\n\nDANCERS DELIGHT | Hobart 7 to 10:30 p.m. Sunday at the Elks in Hobart, 3580 W. 61st Ave. Dance to the Big Band sound of the Gary Anthony Orchestra. FYI: (219) 942-1152\n\nLATIN GROOVE MATRIX | Hammond 8 p.m. Fridays with free salsa lessons from 8 to 9 p.m. at Orbie's International Banquets & Catering, 142 Rimbach Ave. FYI: (219) 805-0990\n\nLINE DANCE LESSONS | Crown Point 7 p.m. Tuesdays at Flamin' Country, 769 Madison St. Admission is $6. FYI: (219) 663-3800\n\nYou are interested in learning line dance and need information regarding the schedule and fees. Which phone number should you call?",
+          "opsi": [
+            "(219) 762-4914",
+            "(219) 663-3800",
+            "(219) 345-5732",
+            "(708) 978-1059"
+          ],
+          "kunci": 2,
+          "jelas": "[PERIKSA] Kunci bank soal C. B dan C sama-sama memuat jadwal dan biaya kelas line dance. Mengikuti kunci bank soal. Brosur LEARN TO LINE DANCE | Schererville mencantumkan jadwal setiap Kamis, pemanasan pukul 18.00–19.00, pelajaran pukul 19.00–20.00, dan biaya USD 35 untuk enam minggu atau USD 6 per sesi. Nomor teleponnya adalah (219) 345-5732. Namun, brosur LINE DANCE LESSONS | Crown Point juga mencantumkan jadwal setiap Selasa pukul 19.00 dan biaya masuk USD 6, dengan nomor (219) 663-3800. Karena kedua informasi sama-sama memuat jadwal dan biaya, pilihan B dan C sama-sama dapat memenuhi permintaan soal.",
+          "jelasOpsi": [
+            "Informasi Spring Luncheon/Bake Sale.",
+            "Line dance di Crown Point, Selasa pukul 19.00, biaya USD 6.",
+            "",
+            "Kelas line dance di Lansing; jadwal tercantum, tetapi biaya tidak disebutkan."
+          ]
+        },
+        {
+          "id": "bg6-6",
+          "tanya": "Scan the following brochure to find the information quickly!\n\nSPRING LUNCHEON | Portage 11 a.m. to 2 p.m. on May 5 the annual Spring Luncheon/Bake Sale at First Presbyterian Church, 6225 Lute Road. Cost is $5 for adults and $3 for children 5 to 10 years old. A large variety of salads, ham, turkey, mostaccioli, breads, desserts, and beverages will be served. An assortment of homemade goodies will be available at the bake sale table. FYI: (219) 762-4914\n\nALONG THE SPECTRUM | Merrillville Merrillville Community Planetarium presents the public program Adventures Along the Spectrum at 7:30 tonight and Saturday at Clifford Pierce Middle School, 199 E. 70th Ave. This is a family presentation of a school program by third- to fifth-graders featuring Professor Photon discussing the invisible and eerie realms of the energy spectrum. A look at the spring sky follows. Admission is $3 for adults and $1.50 for children. Reserve seats or arrange for a private group show. FYI: (219) 650-5486\n\nGOOD TIME CHARLEY SINGLES DANCE | Schererville 7 p.m. Sunday at the Woodhollow Loft, 221 U.S. 41. Admission is $7 and $5 before 8:15 p.m. FYI: (219) 650-2111\n\nLEARN TO LINE DANCE | Schererville Line-dance lessons start Thursday at American Legion Post 485, 7485 Burr St. Warm up from 6 to 7 p.m. and learn to dance from 7 to 8 p.m. Thursdays. Cost for a six-week series is $35, or $6 per session. Sign up on the first night of classes. FYI: (219) 345-5732\n\nLINE DANCING CLASSES | Lansing 7 p.m. Wednesday join the fun and get that much-needed exercise at the beginning line dancing lessons at St. Kevin Church hall, 10509 Torrence Ave. FYI: (708) 978-1059\n\nDANCERS DELIGHT | Hobart 7 to 10:30 p.m. Sunday at the Elks in Hobart, 3580 W. 61st Ave. Dance to the Big Band sound of the Gary Anthony Orchestra. FYI: (219) 942-1152\n\nLATIN GROOVE MATRIX | Hammond 8 p.m. Fridays with free salsa lessons from 8 to 9 p.m. at Orbie's International Banquets & Catering, 142 Rimbach Ave. FYI: (219) 805-0990\n\nLINE DANCE LESSONS | Crown Point 7 p.m. Tuesdays at Flamin' Country, 769 Madison St. Admission is $6. FYI: (219) 663-3800\n\nYou and your family plan to eat out at a venue. What information do you find regarding the menu provided?",
+          "opsi": [
+            "The menu served includes salads, mostaccioli, breads, and desserts.",
+            "The menu served is Chinese food.",
+            "The menu served is European food.",
+            "The menu served is seafood and steak."
+          ],
+          "kunci": 0,
+          "jelas": "Pada bagian SPRING LUNCHEON | Portage, brosur menyebutkan menu berupa berbagai salad, ham, turkey, mostaccioli, roti, makanan penutup, dan minuman. Pilihan A sesuai dengan informasi tersebut.",
+          "jelasOpsi": [
+            "",
+            "Tidak ada keterangan bahwa menu berupa makanan Tiongkok.",
+            "Tidak ada keterangan bahwa menu berupa makanan Eropa.",
+            "Tidak sesuai; brosur menyebut ham dan turkey, bukan seafood dan steak."
+          ]
+        },
+        {
+          "id": "bg6-7",
+          "tanya": "Scan the following brochure to find the information quickly!\n\nSPRING LUNCHEON | Portage 11 a.m. to 2 p.m. on May 5 the annual Spring Luncheon/Bake Sale at First Presbyterian Church, 6225 Lute Road. Cost is $5 for adults and $3 for children 5 to 10 years old. A large variety of salads, ham, turkey, mostaccioli, breads, desserts, and beverages will be served. An assortment of homemade goodies will be available at the bake sale table. FYI: (219) 762-4914\n\nALONG THE SPECTRUM | Merrillville Merrillville Community Planetarium presents the public program Adventures Along the Spectrum at 7:30 tonight and Saturday at Clifford Pierce Middle School, 199 E. 70th Ave. This is a family presentation of a school program by third- to fifth-graders featuring Professor Photon discussing the invisible and eerie realms of the energy spectrum. A look at the spring sky follows. Admission is $3 for adults and $1.50 for children. Reserve seats or arrange for a private group show. FYI: (219) 650-5486\n\nGOOD TIME CHARLEY SINGLES DANCE | Schererville 7 p.m. Sunday at the Woodhollow Loft, 221 U.S. 41. Admission is $7 and $5 before 8:15 p.m. FYI: (219) 650-2111\n\nLEARN TO LINE DANCE | Schererville Line-dance lessons start Thursday at American Legion Post 485, 7485 Burr St. Warm up from 6 to 7 p.m. and learn to dance from 7 to 8 p.m. Thursdays. Cost for a six-week series is $35, or $6 per session. Sign up on the first night of classes. FYI: (219) 345-5732\n\nLINE DANCING CLASSES | Lansing 7 p.m. Wednesday join the fun and get that much-needed exercise at the beginning line dancing lessons at St. Kevin Church hall, 10509 Torrence Ave. FYI: (708) 978-1059\n\nDANCERS DELIGHT | Hobart 7 to 10:30 p.m. Sunday at the Elks in Hobart, 3580 W. 61st Ave. Dance to the Big Band sound of the Gary Anthony Orchestra. FYI: (219) 942-1152\n\nLATIN GROOVE MATRIX | Hammond 8 p.m. Fridays with free salsa lessons from 8 to 9 p.m. at Orbie's International Banquets & Catering, 142 Rimbach Ave. FYI: (219) 805-0990\n\nLINE DANCE LESSONS | Crown Point 7 p.m. Tuesdays at Flamin' Country, 769 Madison St. Admission is $6. FYI: (219) 663-3800\n\nTo learn salsa, you can find the information under...",
+          "opsi": [
+            "ALONG THE SPECTRUM",
+            "DANCERS DELIGHT",
+            "LINE DANCING CLASSES",
+            "GOOD TIME CHARLEY SINGLES DANCE"
+          ],
+          "kunci": 1,
+          "jelas": "[PERIKSA] Kunci bank soal B. Tidak ada pilihan benar; informasi salsa berada di LATIN GROOVE MATRIX yang tidak tersedia dalam opsi. Mengikuti kunci bank soal. Informasi salsa terdapat pada bagian LATIN GROOVE MATRIX | Hammond. Brosur menyebutkan acara berlangsung setiap Jumat pukul 20.00 dan pelajaran salsa gratis pukul 20.00–21.00. Akan tetapi, nama LATIN GROOVE MATRIX tidak tersedia dalam pilihan A–D.",
+          "jelasOpsi": [
+            "Program planetarium.",
+            "",
+            "Kelas line dance.",
+            "Acara dansa untuk lajang."
+          ]
+        },
+        {
+          "id": "bg6-8",
+          "tanya": "Scan the following brochure to find the information quickly!\n\nSCHOLARSHIP AWARD | Crown Point Crown Point Community Foundation is accepting applications for a scholarship for current college students pursuing degrees in optometry, speech and hearing pathology or related fields. This $1,000 scholarship award will be granted to a Crown Point High School graduate enrolled as full time students at an accredited college or university. Applicants can be at the master's degree level or have completed their second semester in a program leading to a bachelor's degree and can reapply for this scholarship. Selection is based on financial need, scholastic ability, character, leadership and integrity. This Crown Point Lions Club award is a unique opportunity for students already enrolled in college. FYI: Call (219) 662-7252.\n\nLAPSIT STORIES | Wheatfield A Lapsit Story Time for one year olds and a parent or caregiver will be held from 10 to 10:30 a.m. Tuesdays, May 2 to May 23, at the Wheatfield Library, 350 S. Bierma St. Stories and songs will be included. Only children who have been registered can attend; other arrangements should be made for siblings. FYI: Call (219) 987-3774.\n\nTODDLER TIME | DeMotte Two year olds, accompanied by a parent or caregiver, are invited to Toddler Time at 10 or 11 a.m. Wednesdays, May 3 to 24, at the DeMotte Library, 901 Birch St. SW. Each 30-minute session will include songs, stories and crafts. Only children who are registered may attend; other arrangements should be made for siblings. FYI: Call (219) 987-2221.\n\nHOW TO ADOPT | Gary Lutheran Social Services is hosting an information meeting on how to become a licensed foster or adoptive home for children in Lake County from 6:30 to 8 p.m. Monday at the Lake County Department of Child Services, 661 Broadway. FYI: Call (219) 838-0996.\n\nVIDEO CONTEST | Nationwide College students can interpret the Christopher belief that one person can make a different in a short film of five minutes or less. Entries can express this theme in any genre or shooting format but must be submitted on standard, full-size NTSC-format VHS or as a Region 1 or regionless DVD. Winning entries will be aired on a special edition of the internationally-syndicated TV series \"Christopher Closeup.\" In addition, eight winners will receive cash prizes. Entrants must be enrolled in and attending a college or undergraduate program at a college or university. Entries are judged on overall impact, effectiveness of conveying theme, artistic merit and technical proficiency. Entries are due June 9. The Christophers is a nonprofit that uses the media to spread two basic ideas: there's nobody like you and you can make a difference. This message, based on a concept of service to God and all humanity, is addressed to people of all faiths and of no particular faith. FYI: Call (212) 759-4050 or visit www.christophers.org.\n\nESSAY CONTEST | Nationwide The Ayn Rand Institute has an \"Atlas Shrugged\" essay contest for college students. The entry deadline is Sept. 15. First prize is $5,000, second prize is $1,000. There are also cash prizes for third prize, finalists and semifinalists. There are three topics to choose from. Entrants must be enrolled in a college degree program at time of entry. Essay must be no fewer than 1,000 and no more than 1,200 words in length and must be typewritten and double-spaced. One entry per student. Essay must be solely the work of the entrant. Essays can be submitted online or mailed. FYI: Visit www.aynrand.org/contests.\n\nYou are looking for a place to take your child to play while learning (your child is 2.5 years old). You can read the information under...",
+          "opsi": [
+            "VIDEO CONTEST",
+            "TODDLER TIME",
+            "HOW TO ADOPT",
+            "ESSAY CONTEST"
+          ],
+          "kunci": 1,
+          "jelas": "Bagian TODDLER TIME | DeMotte ditujukan bagi anak berusia dua tahun yang didampingi orang tua atau pengasuh. Kegiatan berlangsung selama 30 menit dan mencakup lagu, cerita, serta kerajinan tangan. Ini paling sesuai dengan kebutuhan anak berusia 2,5 tahun.",
+          "jelasOpsi": [
+            "Kompetisi video untuk mahasiswa.",
+            "",
+            "Pertemuan informasi mengenai pengasuhan/adopsi.",
+            "Kompetisi esai untuk mahasiswa."
+          ]
+        },
+        {
+          "id": "bg6-9",
+          "tanya": "Scan the following brochure to find the information quickly!\n\nSCHOLARSHIP AWARD | Crown Point Crown Point Community Foundation is accepting applications for a scholarship for current college students pursuing degrees in optometry, speech and hearing pathology or related fields. This $1,000 scholarship award will be granted to a Crown Point High School graduate enrolled as full time students at an accredited college or university. Applicants can be at the master's degree level or have completed their second semester in a program leading to a bachelor's degree and can reapply for this scholarship. Selection is based on financial need, scholastic ability, character, leadership and integrity. This Crown Point Lions Club award is a unique opportunity for students already enrolled in college. FYI: Call (219) 662-7252.\n\nLAPSIT STORIES | Wheatfield A Lapsit Story Time for one year olds and a parent or caregiver will be held from 10 to 10:30 a.m. Tuesdays, May 2 to May 23, at the Wheatfield Library, 350 S. Bierma St. Stories and songs will be included. Only children who have been registered can attend; other arrangements should be made for siblings. FYI: Call (219) 987-3774.\n\nTODDLER TIME | DeMotte Two year olds, accompanied by a parent or caregiver, are invited to Toddler Time at 10 or 11 a.m. Wednesdays, May 3 to 24, at the DeMotte Library, 901 Birch St. SW. Each 30-minute session will include songs, stories and crafts. Only children who are registered may attend; other arrangements should be made for siblings. FYI: Call (219) 987-2221.\n\nHOW TO ADOPT | Gary Lutheran Social Services is hosting an information meeting on how to become a licensed foster or adoptive home for children in Lake County from 6:30 to 8 p.m. Monday at the Lake County Department of Child Services, 661 Broadway. FYI: Call (219) 838-0996.\n\nVIDEO CONTEST | Nationwide College students can interpret the Christopher belief that one person can make a different in a short film of five minutes or less. Entries can express this theme in any genre or shooting format but must be submitted on standard, full-size NTSC-format VHS or as a Region 1 or regionless DVD. Winning entries will be aired on a special edition of the internationally-syndicated TV series \"Christopher Closeup.\" In addition, eight winners will receive cash prizes. Entrants must be enrolled in and attending a college or undergraduate program at a college or university. Entries are judged on overall impact, effectiveness of conveying theme, artistic merit and technical proficiency. Entries are due June 9. The Christophers is a nonprofit that uses the media to spread two basic ideas: there's nobody like you and you can make a difference. This message, based on a concept of service to God and all humanity, is addressed to people of all faiths and of no particular faith. FYI: Call (212) 759-4050 or visit www.christophers.org.\n\nESSAY CONTEST | Nationwide The Ayn Rand Institute has an \"Atlas Shrugged\" essay contest for college students. The entry deadline is Sept. 15. First prize is $5,000, second prize is $1,000. There are also cash prizes for third prize, finalists and semifinalists. There are three topics to choose from. Entrants must be enrolled in a college degree program at time of entry. Essay must be no fewer than 1,000 and no more than 1,200 words in length and must be typewritten and double-spaced. One entry per student. Essay must be solely the work of the entrant. Essays can be submitted online or mailed. FYI: Visit www.aynrand.org/contests.\n\nWhile talking with your friend, you heard about an essay competition. For more detailed information, you can browse...",
+          "opsi": [
+            "www.christophers.org",
+            "www.essay.org/contests",
+            "www.aynrand.org/contests",
+            "www.crownpoint.org/contests"
+          ],
+          "kunci": 2,
+          "jelas": "Bagian ESSAY CONTEST | Nationwide menyebutkan bahwa informasi lomba esai Atlas Shrugged disediakan melalui situs www.aynrand.org/contests. Karena pertanyaan meminta informasi lebih terperinci tentang kompetisi esai, situs tersebut merupakan jawaban yang tepat.",
+          "jelasOpsi": [
+            "Berkaitan dengan kompetisi video.",
+            "Tidak tercantum dalam brosur.",
+            "",
+            "Tidak tercantum sebagai situs lomba esai."
+          ]
+        },
+        {
+          "id": "bg6-10",
+          "tanya": "Scan the following brochure to find the information quickly!\n\nSCHOLARSHIP AWARD | Crown Point Crown Point Community Foundation is accepting applications for a scholarship for current college students pursuing degrees in optometry, speech and hearing pathology or related fields. This $1,000 scholarship award will be granted to a Crown Point High School graduate enrolled as full time students at an accredited college or university. Applicants can be at the master's degree level or have completed their second semester in a program leading to a bachelor's degree and can reapply for this scholarship. Selection is based on financial need, scholastic ability, character, leadership and integrity. This Crown Point Lions Club award is a unique opportunity for students already enrolled in college. FYI: Call (219) 662-7252.\n\nLAPSIT STORIES | Wheatfield A Lapsit Story Time for one year olds and a parent or caregiver will be held from 10 to 10:30 a.m. Tuesdays, May 2 to May 23, at the Wheatfield Library, 350 S. Bierma St. Stories and songs will be included. Only children who have been registered can attend; other arrangements should be made for siblings. FYI: Call (219) 987-3774.\n\nTODDLER TIME | DeMotte Two year olds, accompanied by a parent or caregiver, are invited to Toddler Time at 10 or 11 a.m. Wednesdays, May 3 to 24, at the DeMotte Library, 901 Birch St. SW. Each 30-minute session will include songs, stories and crafts. Only children who are registered may attend; other arrangements should be made for siblings. FYI: Call (219) 987-2221.\n\nHOW TO ADOPT | Gary Lutheran Social Services is hosting an information meeting on how to become a licensed foster or adoptive home for children in Lake County from 6:30 to 8 p.m. Monday at the Lake County Department of Child Services, 661 Broadway. FYI: Call (219) 838-0996.\n\nVIDEO CONTEST | Nationwide College students can interpret the Christopher belief that one person can make a different in a short film of five minutes or less. Entries can express this theme in any genre or shooting format but must be submitted on standard, full-size NTSC-format VHS or as a Region 1 or regionless DVD. Winning entries will be aired on a special edition of the internationally-syndicated TV series \"Christopher Closeup.\" In addition, eight winners will receive cash prizes. Entrants must be enrolled in and attending a college or undergraduate program at a college or university. Entries are judged on overall impact, effectiveness of conveying theme, artistic merit and technical proficiency. Entries are due June 9. The Christophers is a nonprofit that uses the media to spread two basic ideas: there's nobody like you and you can make a difference. This message, based on a concept of service to God and all humanity, is addressed to people of all faiths and of no particular faith. FYI: Call (212) 759-4050 or visit www.christophers.org.\n\nESSAY CONTEST | Nationwide The Ayn Rand Institute has an \"Atlas Shrugged\" essay contest for college students. The entry deadline is Sept. 15. First prize is $5,000, second prize is $1,000. There are also cash prizes for third prize, finalists and semifinalists. There are three topics to choose from. Entrants must be enrolled in a college degree program at time of entry. Essay must be no fewer than 1,000 and no more than 1,200 words in length and must be typewritten and double-spaced. One entry per student. Essay must be solely the work of the entrant. Essays can be submitted online or mailed. FYI: Visit www.aynrand.org/contests.\n\nHow much scholarship award will you receive if you are a graduate of Crown Point High School?",
+          "opsi": [
+            "$1,000",
+            "$11,000",
+            "$1,00",
+            "$5,000"
+          ],
+          "kunci": 0,
+          "jelas": "Bagian SCHOLARSHIP AWARD | Crown Point secara eksplisit menyatakan bahwa beasiswa yang diberikan bernilai USD 1,000. Informasi ini sesuai dengan pilihan A.",
+          "jelasOpsi": [
+            "",
+            "USD 11,000 — Tidak sesuai dengan nominal yang tercantum.",
+            "USD 1,00 — Format nominal tidak sesuai.",
+            "USD 5,000 — Merupakan hadiah juara pertama pada lomba esai Ayn Rand, bukan beasiswa Crown Point."
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+</script>
+<script>
+/* QuizLearn: logika website. Tidak perlu diubah untuk mengganti soal (edit data.js). */
+(function () {
+  'use strict';
+
+  var D = window.QL_DATA;
+  // Jika beberapa quiz dipasang di domain yang sama, isi "kunciPenyimpanan" di data.js
+  // (misalnya "pemjasa") agar riwayat tiap mata kuliah tidak tercampur.
+  var PFX = D.kunciPenyimpanan ? 'ql_' + D.kunciPenyimpanan + '_' : 'ql_';
+  var K_RIWAYAT = PFX + 'riwayat_v1';
+  var K_AKTIF = PFX + 'ujian_aktif_v1';
+  var VIEWS = ['beranda', 'latihan', 'ujian', 'progres'];
+  // Batas analisis penguasaan (bisa diubah di data.js > pengaturan > penguasaan)
+  var PG = (D.pengaturan && D.pengaturan.penguasaan) || {};
+  var BATAS_KUASAI = PG.batasDikuasai || 80;   // persen benar minimal untuk "Dikuasai"
+  var BATAS_CUKUP = PG.batasCukup || 60;       // persen benar minimal untuk "Cukup"
+  var MIN_BAB = PG.minJawabanBab || 5;         // jumlah jawaban minimal agar bab dinilai
+  var MIN_SOAL = PG.minJawabanSoal || 2;       // soal dinilai setelah dijawab minimal sekian kali
+  var BATAS_SALAH = PG.batasSoalSalah || 50;   // persen salah minimal agar soal masuk "sering salah"
+
+  /* ---------- penyimpanan (aman jika localStorage diblokir) ---------- */
+  var mem = {};
+  function sget(k) {
+    try { var v = localStorage.getItem(k); return v === null ? (mem[k] || null) : v; }
+    catch (e) { return mem[k] || null; }
+  }
+  function sset(k, v) { mem[k] = v; try { localStorage.setItem(k, v); } catch (e) {} }
+  function sdel(k) { delete mem[k]; try { localStorage.removeItem(k); } catch (e) {} }
+  function parse(s, fb) { try { return s ? JSON.parse(s) : fb; } catch (e) { return fb; } }
+
+  /* ---------- data soal ---------- */
+  var Q = {};       // id -> soal
+  var ALL = [];     // semua id soal berurutan dari bab pertama
+  var BAB = {};     // id bab -> bab
+  D.bab.forEach(function (b) {
+    BAB[b.id] = b;
+    b.soal.forEach(function (s) {
+      s.babId = b.id; s.babJudul = b.judul;
+      Q[s.id] = s; ALL.push(s.id);
+    });
+  });
+
+  /* ---------- util ---------- */
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function fmtNum(n) { return Number(n).toLocaleString('id-ID', { maximumFractionDigits: 1 }); }
+  function fmtTime(sec) {
+    sec = Math.max(0, sec);
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  function fmtDate(iso) {
+    try {
+      return new Date(iso).toLocaleString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    } catch (e) { return iso; }
+  }
+  function shuffle(a) {
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  var LET = ['A', 'B', 'C', 'D'];
+
+  var P = {
+    home: '<path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/>',
+    book: '<path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5z"/><path d="M12 6v13.5"/>',
+    pencil: '<path d="M4 20l1-4L16 5a2.1 2.1 0 0 1 3 3L8 19z"/><path d="M14 7l3 3"/>',
+    trophy: '<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4v2a3 3 0 0 0 4 2.8M16 6h4v2a3 3 0 0 1-4 2.8"/><path d="M12 13v4M8.5 20h7M10 17h4"/>',
+    chart: '<rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="5" width="4" height="15" rx="1"/><rect x="16" y="9" width="4" height="11" rx="1"/>',
+    clip: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 12h6M9 16h4"/>',
+    star: '<path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9L3.5 9.7l5.9-.8z"/>',
+    target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 12h.01"/>',
+    chev: '<path d="M9 6l6 6-6 6"/>',
+    left: '<path d="M15 6l-6 6 6 6"/>',
+    arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    flag: '<path d="M6 21V4"/><path d="M6 5h11l-2 4 2 4H6"/>',
+    grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+    bolt: '<path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/>',
+    calc: '<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/>',
+    bksp: '<path d="M21 5H9l-6 7 6 7h12z"/><path d="M12.5 9.5l5 5M17.5 9.5l-5 5"/>',
+    clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'
+  };
+  function ic(n, s) {
+    s = s || 22;
+    return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + P[n] + '</svg>';
+  }
+
+  /* ---------- riwayat ujian ---------- */
+  function validRec(x) {
+    return x && typeof x === 'object' && typeof x.id === 'string' && x.id.length > 0 && x.id.length <= 40 &&
+      typeof x.tanggal === 'string' && !isNaN(new Date(x.tanggal).getTime()) &&
+      Number.isInteger(x.benar) && Number.isInteger(x.salah) && x.benar >= 0 && x.salah >= 0 && x.benar + x.salah > 0;
+  }
+  function cleanRec(x) {
+    var total = x.benar + x.salah;
+    return {
+      id: x.id,
+      tanggal: new Date(x.tanggal).toISOString(),
+      benar: x.benar, salah: x.salah, total: total,
+      nilai: Math.round(x.benar / total * 1000) / 10,
+      durasi: Number.isFinite(x.durasi) && x.durasi >= 0 ? Math.round(x.durasi) : 0,
+      waktuHabis: !!x.waktuHabis,
+      detail: cleanDetail(x.detail)
+    };
+  }
+  // detail: id soal -> 1 (benar), 0 (salah), -1 (tidak sempat dijawab karena waktu habis)
+  function cleanDetail(d) {
+    var o = {}, n = 0;
+    if (!d || typeof d !== 'object' || Array.isArray(d)) return o;
+    Object.keys(d).forEach(function (k) {
+      if (n < 1000 && k.length <= 40 && k !== '__proto__' && (d[k] === 1 || d[k] === 0 || d[k] === -1)) { o[k] = d[k]; n++; }
+    });
+    return o;
+  }
+  function hasQ(id) { return Object.prototype.hasOwnProperty.call(Q, id); }
+  function getHist() {
+    var r = parse(sget(K_RIWAYAT), []);
+    return Array.isArray(r) ? r.filter(validRec).map(cleanRec) : [];
+  }
+  function setHist(h) { sset(K_RIWAYAT, JSON.stringify(h)); }
+  function stats(h) {
+    if (!h.length) return { n: 0, avg: null, max: null, last: null };
+    var sum = 0, max = 0;
+    h.forEach(function (r) { sum += r.nilai; if (r.nilai > max) max = r.nilai; });
+    return { n: h.length, avg: Math.round(sum / h.length * 10) / 10, max: max, last: h[h.length - 1].nilai };
+  }
+
+  /* ---------- analisis penguasaan (dari riwayat ujian) ---------- */
+  function statusBab(n, pct) {
+    if (n < MIN_BAB) return { k: 'data', t: 'Belum cukup data' };
+    if (pct >= BATAS_KUASAI) return { k: 'kuasai', t: 'Dikuasai' };
+    if (pct >= BATAS_CUKUP) return { k: 'cukup', t: 'Cukup' };
+    return { k: 'belum', t: 'Belum dikuasai' };
+  }
+  function analisis(h) {
+    var perSoal = {}, perBab = {}, ada = false;
+    D.bab.forEach(function (b) { perBab[b.id] = { b: b, benar: 0, salah: 0 }; });
+    h.forEach(function (r) {
+      Object.keys(r.detail || {}).forEach(function (id) {
+        var c = r.detail[id];
+        if (!hasQ(id) || c === -1) return;   // soal yang tidak sempat dijawab tidak dihitung
+        ada = true;
+        var s = perSoal[id] || (perSoal[id] = { id: id, benar: 0, salah: 0 });
+        var bb = perBab[Q[id].babId];
+        if (c === 1) { s.benar++; bb.benar++; } else { s.salah++; bb.salah++; }
+      });
+    });
+    var bab = D.bab.map(function (b) {
+      var x = perBab[b.id], n = x.benar + x.salah, pct = n ? Math.round(x.benar / n * 100) : 0;
+      return { b: b, n: n, pct: pct, st: statusBab(n, pct) };
+    });
+    var salah = [], benar = [];
+    ALL.forEach(function (id) {
+      var s = perSoal[id];
+      if (!s) return;
+      var n = s.benar + s.salah;
+      if (n < MIN_SOAL) return;
+      if (s.salah === 0) benar.push(s);
+      else if (s.salah / n * 100 >= BATAS_SALAH) salah.push(s);
+    });
+    salah.sort(function (a, b) {
+      return (b.salah / (b.benar + b.salah)) - (a.salah / (a.benar + a.salah)) || b.salah - a.salah;
+    });
+    return { ada: ada, bab: bab, salah: salah, benar: benar };
+  }
+
+  /* ---------- status aplikasi ---------- */
+  var view = readHash();
+  var lat = { fase: 'awal', list: [], i: 0, ans: {}, b: 'semua', label: '' };
+  var aktif = loadAktif();      // ujian yang sedang berjalan
+  var ujHasil = null;           // hasil ujian terakhir (ditampilkan sekali)
+  var navOpen = false;          // pop-up navigasi nomor soal
+  var calcOpen = false;         // pop-up kalkulator
+  var calc = null;              // status kalkulator (diisi di bagian kalkulator)
+  var confirming = false;       // panel konfirmasi akhiri ujian
+  var hapusConfirm = false;     // panel konfirmasi hapus riwayat
+  var cadangan = null;          // teks cadangan untuk disalin manual
+  var lastView = null;
+
+  /* ---------- kunci ujian: selama ujian berjalan, pengguna tidak boleh pindah halaman ---------- */
+  var PESAN_KUNCI = 'Ujian sedang berjalan. Selesaikan ujian dulu sebelum pindah halaman.';
+  function terkunci() { return !!aktif; }
+  function kembaliKeUjian() {
+    try { history.replaceState(null, '', '#ujian'); } catch (e) { location.hash = 'ujian'; }
+  }
+  // Jika halaman dibuka ulang (refresh) saat ujian masih berjalan, langsung kembali ke ujian.
+  if (aktif && view !== 'ujian') { view = 'ujian'; kembaliKeUjian(); }
+
+  function readHash() {
+    var h = (location.hash || '').replace('#', '');
+    return VIEWS.indexOf(h) >= 0 ? h : 'beranda';
+  }
+  function loadAktif() {
+    var a = parse(sget(K_AKTIF), null);
+    if (!a || !Array.isArray(a.ids) || !a.ids.length || typeof a.endAt !== 'number' || typeof a.startAt !== 'number') return null;
+    for (var i = 0; i < a.ids.length; i++) { if (!Q[a.ids[i]]) return null; }
+    a.answers = (a.answers && typeof a.answers === 'object') ? a.answers : {};
+    var fl = {};
+    if (a.flags && typeof a.flags === 'object') { a.ids.forEach(function (id) { if (a.flags[id] === true && a.answers[id] !== undefined && a.answers[id] !== null) fl[id] = true; }); }
+    a.flags = fl;
+    a.idx = Math.min(Math.max(0, a.idx | 0), a.ids.length - 1);
+    return a;
+  }
+  function saveAktif() { sset(K_AKTIF, JSON.stringify(aktif)); }
+
+  /* ---------- tampilan ---------- */
+  var $main = document.getElementById('main');
+  var $dock = document.getElementById('dock');
+  var $toast = document.getElementById('toast');
+  var $ov = document.createElement('div'); $ov.id = 'overlay'; document.body.appendChild($ov);
+  var toastTimer = null;
+  document.getElementById('mapel').textContent = D.mapel;
+
+  function toast(msg) {
+    $toast.textContent = msg;
+    $toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { $toast.classList.remove('show'); }, 3800);
+  }
+
+  var DOCK_ITEMS = [['beranda', 'Beranda', 'home'], ['latihan', 'Latihan', 'pencil'], ['ujian', 'Ujian', 'trophy'], ['progres', 'Progres', 'chart']];
+  function renderDock() {
+    if ($dock.children.length !== DOCK_ITEMS.length) {
+      $dock.innerHTML = DOCK_ITEMS.map(function (it) {
+        return '<button type="button" data-act="go" data-v="' + it[0] + '">' + ic(it[2]) + it[1] + '</button>';
+      }).join('');
+    }
+    // Tombol dipertahankan; hanya penanda halaman aktif yang diganti agar transisinya halus.
+    for (var i = 0; i < $dock.children.length; i++) {
+      var b = $dock.children[i];
+      if (b.getAttribute('data-v') === view) b.setAttribute('aria-current', 'page');
+      else b.removeAttribute('aria-current');
+      // Saat ujian berjalan, menu selain Ujian dinonaktifkan.
+      var kunci = terkunci() && b.getAttribute('data-v') !== 'ujian';
+      if (kunci) { b.setAttribute('aria-disabled', 'true'); b.style.opacity = '.4'; }
+      else { b.removeAttribute('aria-disabled'); b.style.opacity = ''; }
+    }
+  }
+
+  function reduced() { return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
+
+  /* ---- Pembaruan DOM tanpa membangun ulang: elemen yang sama dipertahankan sehingga transisi CSS,
+     fokus, dan efek tekan tombol tidak terputus saat jawaban dipilih atau soal berganti. ---- */
+  var KEEP_CLS = ['ql-pressed', 'q-in-next', 'q-in-prev'];
+  function syncClass(o, n) {
+    var want = n.getAttribute('class') || '';
+    var keep = KEEP_CLS.filter(function (c) { return o.classList.contains(c) && !n.classList.contains(c); });
+    if (keep.length) want = (want + ' ' + keep.join(' ')).trim();
+    if (want) { if (o.getAttribute('class') !== want) o.setAttribute('class', want); }
+    else if (o.hasAttribute('class')) o.removeAttribute('class');
+  }
+  function syncAttrs(o, n) {
+    var i, nm;
+    for (i = o.attributes.length - 1; i >= 0; i--) {
+      nm = o.attributes[i].name;
+      if (nm !== 'class' && !n.hasAttribute(nm)) o.removeAttribute(nm);
+    }
+    for (i = 0; i < n.attributes.length; i++) {
+      nm = n.attributes[i].name;
+      if (nm !== 'class' && o.getAttribute(nm) !== n.attributes[i].value) o.setAttribute(nm, n.attributes[i].value);
+    }
+    syncClass(o, n);
+  }
+  function morph(o, n) {
+    if (o.nodeType !== n.nodeType || o.nodeName !== n.nodeName) { o.parentNode.replaceChild(n, o); return; }
+    if (o.nodeType === 3 || o.nodeType === 8) { if (o.nodeValue !== n.nodeValue) o.nodeValue = n.nodeValue; return; }
+    if (o.nodeType !== 1) return;
+    syncAttrs(o, n);
+    morphKids(o, n);
+  }
+  function kid(c) { return c.nodeType === 1 && c.id ? c.id : ''; }
+  // Elemen ber-id dicocokkan lewat id-nya (mis. kolom isian), sisanya lewat urutan.
+  function morphKids(o, n) {
+    var oa = Array.prototype.slice.call(o.childNodes), na = Array.prototype.slice.call(n.childNodes);
+    var byId = {}, newIds = {}, used = [], pos = 0, i, oc, nc;
+    oa.forEach(function (c) { if (kid(c)) byId[kid(c)] = c; });
+    na.forEach(function (c) { if (kid(c)) newIds[kid(c)] = true; });
+    for (i = 0; i < na.length; i++) {
+      nc = na[i]; oc = null;
+      if (kid(nc) && byId[kid(nc)] && used.indexOf(byId[kid(nc)]) < 0) oc = byId[kid(nc)];
+      else if (!kid(nc)) {
+        while (pos < oa.length && (used.indexOf(oa[pos]) >= 0 || (kid(oa[pos]) && newIds[kid(oa[pos])]))) pos++;
+        if (pos < oa.length) oc = oa[pos++];
+      }
+      if (oc) {
+        used.push(oc);
+        if (o.childNodes[i] !== oc) o.insertBefore(oc, o.childNodes[i] || null);
+        morph(oc, nc);
+      } else {
+        o.insertBefore(nc, o.childNodes[i] || null);
+      }
+    }
+    oa.forEach(function (c) { if (used.indexOf(c) < 0 && c.parentNode === o) o.removeChild(c); });
+  }
+  function patchMain(html, force) {
+    if (force) { $main.innerHTML = html; return; }
+    var t = document.createElement('template');
+    t.innerHTML = html;
+    morphKids($main, t.content);
+  }
+
+  /* ---- Transisi pindah soal ---- */
+  var pendingNav = null;   // perpindahan soal yang menunggu animasi keluar selesai
+  function isQuestionView() {
+    return view === 'latihan' ? lat.fase === 'jalan' : !!(view === 'ujian' && aktif && !ujHasil);
+  }
+  function animQuestion(dir) {
+    var el = $main.querySelector('.qsec');
+    if (!el) return;
+    el.classList.remove('q-out-next', 'q-out-prev', 'q-in-next', 'q-in-prev');
+    void el.offsetWidth;   // paksa browser mengulang animasi
+    var cls = dir === 'prev' ? 'q-in-prev' : 'q-in-next';
+    el.classList.add(cls);
+    var selesai = function () { el.classList.remove(cls); el.removeEventListener('animationend', selesai); };
+    el.addEventListener('animationend', selesai);
+    setTimeout(selesai, 400);
+  }
+  function pindahSoal(arah, ubah) {
+    ubah();   // status berubah segera; tampilan menyusul setelah animasi keluar
+    if (reduced()) { render({ top: true, questionDirection: arah }); return; }
+    if (pendingNav) { pendingNav.arah = arah; return; }   // ketukan beruntun: cukup render sekali dengan status terbaru
+    var cur = $main.querySelector('.qsec');
+    if (cur) cur.classList.add(arah === 'prev' ? 'q-out-prev' : 'q-out-next');
+    pendingNav = { arah: arah, t: null };
+    pendingNav.t = setTimeout(function () { render({ top: true, questionDirection: arah }); }, 110);
+  }
+
+  /* ---- Pop-up (navigasi soal dan kalkulator) ---- */
+  var ovKey = '';
+  function overlayKey() {
+    var on = (navOpen || calcOpen) && ((view === 'ujian' && aktif && !ujHasil) || (view === 'latihan' && lat.fase === 'jalan'));
+    if (!on) { navOpen = false; calcOpen = false; return ''; }
+    return calcOpen ? 'calc' : (view === 'latihan' ? 'lat-nav' : 'uj-nav');
+  }
+  function setInert(on) {
+    [document.querySelector('.app'), document.getElementById('dock')].forEach(function (x) {
+      if (!x) return;
+      if (on) x.setAttribute('inert', ''); else x.removeAttribute('inert');
+    });
+  }
+  // Hanya membangun ulang pop-up bila jenisnya berubah, sehingga animasi buka tidak terulang dan isi halaman tidak berkedip.
+  function syncOverlay() {
+    var key = overlayKey();
+    if (key === ovKey && (key === '' || $ov.firstChild)) return;
+    ovKey = key;
+    $ov.innerHTML = key === 'calc' ? vCalcPopup() : key === 'lat-nav' ? vLatNavPopup() : key === 'uj-nav' ? vNavPopup() : '';
+    setInert(!!key);
+    document.body.style.overflow = key ? 'hidden' : '';
+  }
+  function closePopup(cb) {
+    var popup = $ov.querySelector('.ov');
+    var selesai = function () { navOpen = false; calcOpen = false; syncOverlay(); if (cb) cb(); };
+    if (!popup) { selesai(); return; }
+    if (popup.classList.contains('is-closing')) return;
+    popup.classList.add('is-closing');
+    setTimeout(selesai, reduced() ? 0 : 175);
+  }
+  function fokus(act) {
+    var el = document.querySelector('[data-act="' + act + '"]');
+    if (el) el.focus();
+  }
+
+  function render(opts) {
+    opts = opts || {};
+    if (pendingNav) {
+      clearTimeout(pendingNav.t);
+      if (!opts.questionDirection) { opts.questionDirection = pendingNav.arah; opts.top = true; }
+      pendingNav = null;
+    }
+    var html;
+    if (view === 'latihan') html = vLatihan();
+    else if (view === 'ujian') html = vUjian();
+    else if (view === 'progres') html = vProgres();
+    else html = vBeranda();
+    var swap = !!opts.questionDirection && isQuestionView() && lastView === view && !reduced();
+    if (swap) $main.classList.add('q-swap');   // matikan transisi isi kartu selama soal diganti
+    patchMain(html, lastView !== view);
+    if (swap) {
+      animQuestion(opts.questionDirection);
+      var lepas = function () { $main.classList.remove('q-swap'); };
+      if (window.requestAnimationFrame) requestAnimationFrame(function () { requestAnimationFrame(lepas); });
+      else setTimeout(lepas, 50);
+    }
+    syncOverlay();
+    renderDock();
+    document.title = 'QuizLearn - ' + D.mapel;
+    if (lastView !== view || opts.top) {
+      window.scrollTo(0, 0);
+      if (lastView !== view) { try { $main.focus({ preventScroll: true }); } catch (e) {} }
+    }
+    lastView = view;
+    tick();
+  }
+
+  function go(v) {
+    if (terkunci() && v !== 'ujian') { toast(PESAN_KUNCI); return; }
+    if (location.hash === '#' + v) { view = v; render(); }
+    else { location.hash = v; }
+  }
+  window.addEventListener('hashchange', function () {
+    var v = readHash();
+    // Tombol Kembali / ubah alamat saat ujian berjalan: batalkan dan tetap di ujian.
+    if (terkunci() && v !== 'ujian') { kembaliKeUjian(); view = 'ujian'; toast(PESAN_KUNCI); render(); return; }
+    view = v; render();
+  });
+  // Peringatan bila pengguna mencoba menutup / memuat ulang halaman saat ujian berjalan.
+  window.addEventListener('beforeunload', function (e) {
+    if (terkunci()) { e.preventDefault(); e.returnValue = ''; return ''; }
+  });
+
+  /* ----- grafik nilai ----- */
+  function chart(h) {
+    var d = h.slice(-7), n = d.length;
+    if (!n) return '<p class="empty">Belum ada data. Selesaikan satu ujian untuk melihat grafik nilai.</p>';
+    var x0 = 40, x1 = 292, base = 130;
+    var pts = d.map(function (r, i) {
+      return { x: n === 1 ? 166 : x0 + i * (x1 - x0) / (n - 1), y: base - r.nilai, r: r, no: h.length - n + i + 1 };
+    });
+    var last = pts[n - 1];
+    var s = '<svg class="chart" viewBox="0 0 320 152" role="img" aria-label="Grafik nilai ujian terakhir, nilai terbaru ' + fmtNum(last.r.nilai) + '">';
+    s += '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A0A0A" stop-opacity="0.18"/><stop offset="1" stop-color="#0A0A0A" stop-opacity="0"/></linearGradient></defs>';
+    [100, 75, 50, 25, 0].forEach(function (v) {
+      s += '<line class="gl" x1="30" y1="' + (base - v) + '" x2="312" y2="' + (base - v) + '"/>';
+      s += '<text x="24" y="' + (base - v + 3) + '" text-anchor="end">' + v + '</text>';
+    });
+    if (n > 1) {
+      s += '<path d="M' + pts[0].x + ',' + base + ' ' + pts.map(function (p) { return 'L' + p.x + ',' + p.y; }).join(' ') + ' L' + last.x + ',' + base + ' Z" fill="url(#ag)"/>';
+      s += '<polyline class="ln" points="' + pts.map(function (p) { return p.x + ',' + p.y; }).join(' ') + '"/>';
+    }
+    pts.forEach(function (p, i) {
+      if (i < n - 1) s += '<circle class="pt" cx="' + p.x + '" cy="' + p.y + '" r="4.5"/>';
+    });
+    s += '<circle class="pe" cx="' + last.x + '" cy="' + last.y + '" r="5.5"/>';
+    var ty = Math.max(2, last.y - 28), tx = Math.min(last.x - 20, 278);
+    s += '<rect class="tip" x="' + tx + '" y="' + ty + '" width="40" height="18" rx="9"/>';
+    s += '<text class="tipt" x="' + (tx + 20) + '" y="' + (ty + 13) + '" text-anchor="middle">' + fmtNum(last.r.nilai) + '</text>';
+    pts.forEach(function (p) { s += '<text x="' + p.x + '" y="147" text-anchor="middle">#' + p.no + '</text>'; });
+    return s + '</svg>';
+  }
+
+  /* ----- beranda ----- */
+  function statsHtml(st) {
+    var items = [
+      ['clip', st.n ? String(st.n) : '0', 'Ujian Selesai'],
+      ['target', st.avg === null ? '–' : fmtNum(st.avg), 'Rata-rata Nilai'],
+      ['trophy', st.max === null ? '–' : fmtNum(st.max), 'Nilai Tertinggi'],
+      ['star', st.last === null ? '–' : fmtNum(st.last), 'Nilai Terakhir']
+    ];
+    return '<div class="stats">' + items.map(function (it) {
+      return '<div class="glass stat">' + ic(it[0], 24) + '<b>' + it[1] + '</b><span>' + it[2] + '</span></div>';
+    }).join('') + '</div>';
+  }
+
+  function vBeranda() {
+    var h = getHist(), st = stats(h);
+    var jml = Math.min(D.pengaturan.ujianJumlahSoal, ALL.length), mnt = D.pengaturan.ujianMenit;
+    var html = '<h1 class="h1">Selamat Datang Kembali!</h1>' +
+      '<p class="lead">Berlatih, lalu uji pemahamanmu di ' + esc(D.mapel) + '.</p>';
+    if (aktif) {
+      html += '<section class="glass card" style="flex-direction:row;align-items:center;flex-wrap:wrap"><div style="flex:1 1 160px"><h3 class="h3">Ujian sedang berjalan</h3><span class="muted small">Waktu terus berjalan. Lanjutkan sebelum habis.</span></div><button type="button" class="btn btn-sm" data-act="go" data-v="ujian">Lanjutkan</button></section>';
+    }
+    html += statsHtml(st);
+    html += '<section class="card dark on-dark"><div class="eyebrow">Ujian Quiz</div>' +
+      '<div class="cta"><div class="grow"><div class="t">Uji pemahamanmu</div><div class="meta">' + jml + ' soal, ' + mnt + ' menit</div></div>' +
+      '<button type="button" class="btn btn-light" data-act="go" data-v="ujian">Mulai Ujian ' + ic('arrow', 16) + '</button></div></section>';
+    html += '<section class="glass card"><h2 class="h2"><span class="dot"></span>Perkembangan Nilai Ujian</h2>' + chart(h) + '</section>';
+    return html;
+  }
+
+  /* ----- latihan ----- */
+  function latBaru() { return { fase: 'awal', list: [], i: 0, ans: {}, b: 'semua', label: '' }; }
+
+  function latHitung() {
+    var dj = 0, bn = 0;
+    lat.list.forEach(function (id) {
+      var v = lat.ans[id];
+      if (v !== undefined) { dj++; if (v === Q[id].kunci) bn++; }
+    });
+    return { dj: dj, bn: bn };
+  }
+
+  function exTeks(ok, teks) {
+    return '<div class="ex ' + (ok ? 'ok' : 'bad') + '"><b>' + ic(ok ? 'check' : 'x', 16) + (ok ? 'Mengapa jawaban ini benar' : 'Mengapa jawaban ini salah') + '</b><p>' + esc(teks) + '</p></div>';
+  }
+
+  function vLatihan() {
+    if (lat.fase === 'awal') {
+      return '<h1 class="h1">Latihan Quiz</h1><p class="lead">Kerjakan seluruh soal dalam satu rangkaian. Setiap jawaban langsung dikoreksi dan dijelaskan, tanpa batas waktu.</p>' +
+        '<section class="glass card"><h2 class="h2"><span class="dot"></span>Cara Berlatih</h2><ol class="rules">' +
+        '<li>Bacalah setiap soal dengan teliti.</li>' +
+        '<li>Pilih satu jawaban yang paling tepat.</li>' +
+        '<li>Koreksi dan penjelasan langsung muncul setelah kamu memilih.</li>' +
+        '<li>Jawaban yang sudah dipilih tidak bisa diubah.</li>' +
+        '<li>Gunakan tombol Nomor untuk berpindah ke soal lain.</li>' +
+        '<li>Hasil latihan tidak disimpan di Progres.</li></ol>' +
+        (ALL.length ? '<button type="button" class="btn btn-block" data-act="lat-mulai">' + ic('pencil', 18) + 'Mulai Latihan (' + ALL.length + ' soal)</button>' : '<button type="button" class="btn btn-block" disabled>Mulai Latihan</button><p class="note" style="text-align:center">Belum ada soal tersedia.</p>') + '</section>';
+    }
+    var n = lat.list.length, c = latHitung();
+    if (lat.fase === 'selesai') {
+      var pct = Math.round(c.bn / n * 1000) / 10;
+      return '<h1 class="h1">Latihan Selesai</h1>' +
+        '<section class="glass card"><div class="eyebrow" style="color:var(--ink-2)">' + esc(lat.label) + '</div><div class="score">' + c.bn + '<small> / ' + n + ' benar</small></div><p class="lead">Ketepatan ' + fmtNum(pct) + '%. Hasil latihan tidak disimpan di Progres.</p></section>' +
+        '<div class="row"><button type="button" class="btn" data-act="lat-ulang">Ulangi</button><button type="button" class="btn btn-ghost" data-act="lat-keluar">Kembali</button></div>';
+    }
+    var id = lat.list[lat.i], q = Q[id], pilih = lat.ans[id], done = pilih !== undefined, sisa = n - c.dj;
+    var h = '<div class="qhead"><span class="chip">Soal ' + (lat.i + 1) + ' dari ' + n + '</span>' +
+      '<button type="button" class="chip chip-btn" data-act="nav-buka" aria-haspopup="dialog" aria-label="Buka navigasi soal">' + ic('grid', 14) + '</button>' +
+      '<button type="button" class="chip chip-btn chip-ico" data-act="calc-buka" aria-haspopup="dialog" aria-label="Buka kalkulator">' + ic('calc', 16) + '</button>' +
+      '<button type="button" class="btn btn-ghost btn-sm" style="margin-left:auto" data-act="lat-keluar">Keluar</button></div>';
+    h += '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="' + n + '" aria-valuenow="' + c.dj + '" aria-label="Kemajuan latihan"><i style="width:' + (c.dj / n * 100) + '%"></i></div>';
+    h += '<section class="glass card qsec"><p class="qtext">' + esc(q.tanya) + '</p><div class="opts">';
+    q.opsi.forEach(function (o, k) {
+      var cls = '', tag = '', ex = '';
+      if (done) {
+        if (k === q.kunci) {
+          cls = ' ok'; tag = '<span class="tag">' + (pilih === k ? 'Jawabanmu benar' : 'Jawaban yang benar') + '</span>';
+          ex = q.jelas ? exTeks(true, q.jelas) : '';
+        } else if (k === pilih) {
+          cls = ' bad'; tag = '<span class="tag">Jawabanmu salah</span>';
+          var jo = (q.jelasOpsi && q.jelasOpsi[k]) || (q.jelas ? 'Pilihan ini kurang tepat. Lihat penjelasan pada jawaban yang benar.' : '');
+          ex = jo ? exTeks(false, jo) : '';
+        } else cls = ' dim';
+      }
+      h += '<div class="og"><button type="button" class="opt' + cls + '" data-act="lat-jawab" data-k="' + k + '"' + (done ? ' disabled' : '') + '><span class="lt">' + LET[k] + '</span><span class="tx"><span>' + esc(o) + '</span>' + tag + '</span></button>' + ex + '</div>';
+    });
+    h += '</div></section>';
+    h += '<div class="ctl"><button type="button" class="btn btn-ghost btn-step" data-act="lat-prev" aria-label="Soal sebelumnya"' + (lat.i === 0 ? ' disabled' : '') + '>' + ic('left', 22) + '</button>' +
+      '<button type="button" class="btn btn-ghost" data-act="lat-akhiri"' + (sisa > 0 ? ' disabled' : '') + '>Akhiri Latihan</button>' +
+      '<button type="button" class="btn btn-ghost btn-step" data-act="lat-next" aria-label="Soal berikutnya"' + (lat.i >= n - 1 ? ' disabled' : '') + '>' + ic('chev', 22) + '</button></div>';
+    if (sisa > 0) h += '<p class="note" style="text-align:center">Masih ada ' + sisa + ' soal yang belum dijawab.</p>';
+    return h;
+  }
+
+  function vLatNavPopup() {
+    var n = lat.list.length, c = latHitung();
+    var g = '<div class="nav-grid" role="group" aria-label="Nomor soal">';
+    lat.list.forEach(function (x, i) {
+      var v = lat.ans[x], d = v !== undefined, ok = d && v === Q[x].kunci;
+      g += '<button type="button" class="nb' + (d ? (ok ? ' done' : ' bad') : '') + (i === lat.i ? ' now' : '') + '" data-act="lat-ke" data-i="' + i + '" aria-label="Soal ' + (i + 1) + (d ? (ok ? ', dijawab benar' : ', dijawab salah') : ', belum dijawab') + '"' + (i === lat.i ? ' aria-current="true"' : '') + '><span class="n">' + (i + 1) + '</span></button>';
+    });
+    g += '</div>';
+    return '<div class="ov" data-act="nav-tutup"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="navt" data-act="noop">' +
+      '<div class="sheet-h"><h2 class="h2" id="navt">Navigasi Soal</h2><button type="button" class="iconbtn" data-act="nav-tutup" aria-label="Tutup navigasi soal">' + ic('x', 18) + '</button></div>' +
+      '<p class="note">Dijawab ' + c.dj + ' dari ' + n + '. Belum dijawab ' + (n - c.dj) + '. Benar ' + c.bn + '. Salah ' + (c.dj - c.bn) + '.</p>' +
+      g + '<button type="button" class="btn btn-block" data-act="nav-tutup">Tutup</button></div></div>';
+  }
+
+  function latMulai(b) {
+    var ids, label;
+    if (!ALL.length) { toast('Belum ada soal tersedia.'); return; }
+    b = b || 'semua';
+    if (b === 'semua') { ids = ALL.slice(); label = 'Semua Soal'; }
+    else if (b === 'salah') {
+      var set = {};
+      analisis(getHist()).salah.forEach(function (s) { set[s.id] = true; });
+      ids = ALL.filter(function (id) { return set[id]; });
+      label = 'Soal yang sering salah';
+      if (!ids.length) { toast('Belum ada soal yang sering salah.'); return; }
+    } else if (BAB[b]) { ids = BAB[b].soal.map(function (s) { return s.id; }); label = BAB[b].judul; }
+    else return;
+    muat('Menyiapkan latihan', function () {
+      lat = { fase: 'jalan', list: ids, i: 0, ans: {}, b: b, label: label };
+      navOpen = false; calcOpen = false;
+      go('latihan');
+      render({ top: true });
+    });
+  }
+
+  /* ----- ujian ----- */
+  function ujianJumlah() { return Math.min(D.pengaturan.ujianJumlahSoal, ALL.length); }
+
+  function vUjian() {
+    if (aktif) return vUjianJalan();
+    if (ujHasil) return vUjianHasil();
+    var mnt = D.pengaturan.ujianMenit;
+    var h = getHist(), last = h.length ? h[h.length - 1] : null;
+    return '<h1 class="h1">Ujian Quiz</h1><p class="lead">Ujikan pemahamanmu tanpa petunjuk jawaban.</p>' +
+      '<section class="glass card"><h2 class="h2"><span class="dot"></span>Peraturan Pengerjaan Quiz</h2><ol class="rules">' +
+      '<li>Bacalah setiap soal dengan teliti.</li>' +
+      '<li>Pilih satu jawaban yang paling tepat.</li>' +
+      '<li>Setiap soal hanya memiliki satu jawaban benar.</li>' +
+      '<li>Waktu pengerjaan ' + mnt + ' menit.</li>' +
+      '<li>Periksa kembali jawaban sebelum menyelesaikan quiz.</li>' +
+      '<li>Hasil quiz ditampilkan setelah pengerjaan selesai.</li></ol>' +
+      (ALL.length ? '<button type="button" class="btn btn-block" data-act="uj-mulai">' + ic('clock', 18) + 'Mulai Ujian</button>' : '<button type="button" class="btn btn-block" disabled>Mulai Ujian</button><p class="note" style="text-align:center">Belum ada soal tersedia.</p>') + '</section>' +
+      (last ? '<p class="note">Ujian terakhir: nilai ' + fmtNum(last.nilai) + ' (' + last.benar + ' benar, ' + last.salah + ' salah), ' + esc(fmtDate(last.tanggal)) + '.</p>' : '');
+  }
+
+  function navGrid(a) {
+    var h = '<div class="nav-grid" role="group" aria-label="Nomor soal">';
+    a.ids.forEach(function (x, i) {
+      var d = a.answers[x] !== undefined && a.answers[x] !== null, r = !!a.flags[x];
+      var huruf = d ? LET[a.answers[x]] : '';
+      h += '<button type="button" class="nb' + (d ? (r ? ' ragu' : ' done') : '') + (i === a.idx ? ' now' : '') + '" data-act="uj-ke" data-i="' + i + '" aria-label="Soal ' + (i + 1) + (d ? ', dijawab ' + huruf : ', belum dijawab') + (r ? ', ragu-ragu' : '') + '"' + (i === a.idx ? ' aria-current="true"' : '') + '><span class="n">' + (d ? huruf : (i + 1)) + '</span></button>';
+    });
+    return h + '</div>';
+  }
+
+  function vNavPopup() {
+    var a = aktif, n = a.ids.length, dj = 0, rg = 0;
+    a.ids.forEach(function (x) { if (a.answers[x] !== undefined && a.answers[x] !== null) dj++; if (a.flags[x]) rg++; });
+    return '<div class="ov" data-act="nav-tutup"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="navt" data-act="noop">' +
+      '<div class="sheet-h"><h2 class="h2" id="navt">Navigasi Soal</h2><button type="button" class="iconbtn" data-act="nav-tutup" aria-label="Tutup navigasi soal">' + ic('x', 18) + '</button></div>' +
+      '<p class="note">Dijawab ' + dj + ' dari ' + n + '. Belum dijawab ' + (n - dj) + '. Ragu-ragu ' + rg + '.</p>' +
+      navGrid(a) +
+      '<button type="button" class="btn btn-block" data-act="nav-tutup">Tutup</button></div></div>';
+  }
+
+  function vUjianJalan() {
+    var a = aktif, n = a.ids.length, id = a.ids[a.idx], q = Q[id];
+    var jawab = a.answers, terjawab = 0, ragu = 0;
+    a.ids.forEach(function (x) { if (jawab[x] !== undefined && jawab[x] !== null) terjawab++; if (a.flags[x]) ragu++; });
+    var sisa = n - terjawab, isRagu = !!a.flags[id];
+    var rem = Math.max(0, Math.ceil((a.endAt - Date.now()) / 1000));
+    var h = '<div class="qhead"><span class="chip">Soal ' + (a.idx + 1) + ' dari ' + n + '</span>' +
+      '<button type="button" class="chip chip-btn" data-act="nav-buka" aria-haspopup="dialog" aria-label="Buka navigasi soal">' + ic('grid', 14) + '</button>' +
+      '<button type="button" class="chip chip-btn chip-ico" data-act="calc-buka" aria-haspopup="dialog" aria-label="Buka kalkulator">' + ic('calc', 16) + '</button>' +
+      '<span class="chip timer" id="timer" role="timer" aria-label="Sisa waktu" data-low="' + (rem < 60 ? 1 : 0) + '">' + fmtTime(rem) + '</span></div>';
+    h += '<section class="glass card qsec"><p class="qtext">' + esc(q.tanya) + '</p><div class="opts">';
+    q.opsi.forEach(function (o, k) {
+      var sel = jawab[id] === k;
+      h += '<button type="button" class="opt' + (sel ? ' sel' : '') + '" data-act="uj-jawab" data-k="' + k + '" aria-pressed="' + (sel ? 'true' : 'false') + '"><span class="lt">' + LET[k] + '</span><span class="tx"><span>' + esc(o) + '</span></span></button>';
+    });
+    h += '</div></section>';
+    h += '<div class="ctl"><button type="button" class="btn btn-ghost btn-step" data-act="uj-prev" aria-label="Soal sebelumnya"' + (a.idx === 0 ? ' disabled' : '') + '>' + ic('left', 22) + '</button>' +
+      '<button type="button" class="btn btn-ghost btn-ragu" data-act="uj-ragu" aria-pressed="' + (isRagu ? 'true' : 'false') + '"' + (jawab[id] === undefined || jawab[id] === null ? ' disabled title="Pilih jawaban dulu"' : '') + '>' + ic('flag', 16) + 'Ragu-ragu</button>' +
+      '<button type="button" class="btn btn-ghost btn-step" data-act="uj-next" aria-label="Soal berikutnya"' + (a.idx >= n - 1 ? ' disabled' : '') + '>' + ic('chev', 22) + '</button></div>';
+    if (confirming && sisa === 0) {
+      h += '<div class="confirm"><p><b>Akhiri ujian sekarang?</b> Jawaban tidak bisa diubah setelahnya.' + (ragu ? ' Masih ada ' + ragu + ' soal ditandai ragu-ragu.' : '') + '</p><div class="row"><button type="button" class="btn" data-act="uj-ya">Ya, akhiri</button><button type="button" class="btn btn-ghost" data-act="uj-batal">Kembali</button></div></div>';
+    } else {
+      h += '<button type="button" class="btn btn-block" data-act="uj-akhiri"' + (sisa > 0 ? ' disabled' : '') + '>Akhiri Ujian</button>';
+      if (sisa > 0) h += '<p class="note" style="text-align:center">Masih ada ' + sisa + ' soal yang belum dijawab.</p>';
+      else if (ragu) h += '<p class="note" style="text-align:center">Ada ' + ragu + ' soal ditandai ragu-ragu. Buka Nomor untuk meninjau.</p>';
+    }
+    return h;
+  }
+
+  function vUjianHasil() {
+    var r = ujHasil;
+    return '<h1 class="h1">Hasil Ujian</h1>' +
+      '<section class="glass card"><div class="eyebrow" style="color:var(--ink-2)">Nilai</div><div class="score">' + fmtNum(r.nilai) + '<small> / 100</small></div>' +
+      '<p class="lead">' + (r.waktuHabis ? 'Waktu habis. Soal yang belum dijawab dihitung salah.' : 'Ujian diakhiri.') + ' Lama pengerjaan ' + fmtTime(r.durasi) + '.</p></section>' +
+      '<div class="two"><div class="glass"><b>' + r.benar + '</b><span>Jawaban benar</span></div><div class="glass"><b>' + r.salah + '</b><span>Jawaban salah</span></div></div>' +
+      '<p class="note">Hasil ini sudah tersimpan di menu Progres.</p>' +
+      '<div class="row"><button type="button" class="btn" data-act="go" data-v="progres">Lihat Progres</button><button type="button" class="btn btn-ghost" data-act="uj-ulang">Ujian lagi</button></div>';
+  }
+
+  function ujMulai() {
+    if (!ALL.length) { toast('Belum ada soal tersedia.'); return; }
+    muat('Menyiapkan ujian', ujMulaiInti);
+  }
+
+  function ujMulaiInti() {
+    var ids = shuffle(ALL).slice(0, ujianJumlah());
+    var now = Date.now();
+    aktif = { id: now.toString(36) + Math.random().toString(36).slice(2, 6), startAt: now, endAt: now + D.pengaturan.ujianMenit * 60000, ids: ids, answers: {}, flags: {}, idx: 0 };
+    ujHasil = null; confirming = false; navOpen = false;
+    saveAktif();
+    render({ top: true });
+  }
+
+  function finish(waktuHabis) {
+    if (!aktif) return;
+    var a = aktif, benar = 0, total = a.ids.length;
+    var detail = {};
+    a.ids.forEach(function (id) {
+      var jw = a.answers[id];
+      if (jw === undefined || jw === null) detail[id] = -1;
+      else if (jw === Q[id].kunci) { detail[id] = 1; benar++; }
+      else detail[id] = 0;
+    });
+    var end = Math.min(Date.now(), a.endAt);
+    var rec = {
+      id: a.id, tanggal: new Date(end).toISOString(), benar: benar, salah: total - benar, total: total,
+      nilai: Math.round(benar / total * 1000) / 10, durasi: Math.round((end - a.startAt) / 1000), waktuHabis: !!waktuHabis,
+      detail: detail
+    };
+    var h = getHist();
+    h.push(rec);
+    setHist(h);
+    aktif = null; sdel(K_AKTIF); confirming = false; ujHasil = rec;
+    if (view !== 'ujian') toast('Waktu ujian habis. Hasil sudah tersimpan di Progres.');
+    render({ top: true });
+  }
+
+  function tick() {
+    if (!aktif) return;
+    var rem = aktif.endAt - Date.now();
+    if (rem <= 0) { finish(true); return; }
+    var el = document.getElementById('timer');
+    if (el) {
+      var s = Math.ceil(rem / 1000);
+      el.textContent = fmtTime(s);
+      el.setAttribute('data-low', s < 60 ? '1' : '0');
+    }
+  }
+  setInterval(tick, 500);
+  document.addEventListener('visibilitychange', tick);
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !(navOpen || calcOpen)) return;
+    var kal = calcOpen;
+    closePopup(function () { fokus(kal ? 'calc-buka' : 'nav-buka'); });
+  });
+
+  /* ----- kalkulator ----- */
+  var OPSYM = { '+': '+', '-': '\u2212', '*': '\u00d7', '/': '\u00f7' };
+  function calcBaru() { return { cur: '0', acc: null, op: null, fresh: false, expr: '', err: false }; }
+  calc = calcBaru();
+  function cFmt(x) {
+    x = String(x);
+    if (/e/i.test(x)) return x.replace('.', ',');
+    var neg = x.charAt(0) === '-'; if (neg) x = x.slice(1);
+    var p = x.split('.'), ip = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return (neg ? '-' : '') + ip + (p.length > 1 ? ',' + p[1] : '');
+  }
+  function cHitung(a, o, b) {
+    var r = o === '+' ? a + b : o === '-' ? a - b : o === '*' ? a * b : (b === 0 ? NaN : a / b);
+    if (!isFinite(r)) return null;
+    return String(parseFloat(r.toPrecision(12)));
+  }
+  function cError() { calc = calcBaru(); calc.err = true; }
+  function cTekan(k) {
+    if (calc.err && k !== 'C') calc = calcBaru();
+    var c = calc, r;
+    if (k.length === 1 && k >= '0' && k <= '9') {
+      if (c.fresh) { c.cur = k; c.fresh = false; }
+      else if (c.cur.replace(/[-.]/g, '').length < 15) c.cur = c.cur === '0' ? k : (c.cur === '-0' ? '-' + k : c.cur + k);
+    } else if (k === '.') {
+      if (c.fresh) { c.cur = '0.'; c.fresh = false; }
+      else if (c.cur.indexOf('.') < 0) c.cur += '.';
+    } else if (k === 'C') {
+      calc = calcBaru();
+    } else if (k === 'B') {
+      if (!c.fresh) c.cur = (c.cur.length > 1 && !(c.cur.length === 2 && c.cur.charAt(0) === '-')) ? c.cur.slice(0, -1) : '0';
+    } else if (k === 'N') {
+      if (c.cur !== '0' && c.cur !== '0.') c.cur = c.cur.charAt(0) === '-' ? c.cur.slice(1) : '-' + c.cur;
+    } else if (k === '%') {
+      c.cur = String(parseFloat((parseFloat(c.cur) / 100).toPrecision(12))); c.fresh = true;
+    } else if (OPSYM[k]) {
+      if (c.op && c.acc !== null && !c.fresh) {
+        r = cHitung(c.acc, c.op, parseFloat(c.cur));
+        if (r === null) { cError(); return; }
+        c.acc = parseFloat(r); c.cur = r;
+      } else c.acc = parseFloat(c.cur);
+      c.op = k; c.fresh = true; c.expr = cFmt(c.cur) + ' ' + OPSYM[k];
+    } else if (k === '=') {
+      if (c.op && c.acc !== null) {
+        var b = c.fresh ? c.acc : parseFloat(c.cur);
+        r = cHitung(c.acc, c.op, b);
+        if (r === null) { cError(); return; }
+        c.expr = cFmt(c.acc) + ' ' + OPSYM[c.op] + ' ' + cFmt(b) + ' =';
+        c.cur = r; c.acc = null; c.op = null; c.fresh = true;
+      }
+    }
+  }
+  function calcTeks() { return calc.err ? 'Tidak valid' : cFmt(calc.cur); }
+  function calcUkuran(t) { return t.length > 14 ? 22 : (t.length > 10 ? 28 : 36); }
+  function calcUpdate() {
+    var d = document.getElementById('calcd'), e = document.getElementById('calce');
+    if (!d || !e) return;
+    var t = calcTeks();
+    d.textContent = t; d.style.fontSize = calcUkuran(t) + 'px';
+    e.textContent = calc.expr || '\u00a0';
+  }
+  function vCalcPopup() {
+    var K = [
+      ['C', 'C', 'fn', 'Hapus semua'], ['B', ic('bksp', 22), 'fn', 'Hapus satu angka'], ['%', '%', 'fn', 'Persen'], ['/', '\u00f7', 'op', 'Bagi'],
+      ['7', '7'], ['8', '8'], ['9', '9'], ['*', '\u00d7', 'op', 'Kali'],
+      ['4', '4'], ['5', '5'], ['6', '6'], ['-', '\u2212', 'op', 'Kurang'],
+      ['1', '1'], ['2', '2'], ['3', '3'], ['+', '+', 'op', 'Tambah'],
+      ['N', '\u00b1', 'fn', 'Ubah positif atau negatif'], ['0', '0'], ['.', ',', '', 'Koma desimal'], ['=', '=', 'op', 'Sama dengan']
+    ];
+    var t = calcTeks();
+    return '<div class="ov" data-act="calc-tutup"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="calct" data-act="noop">' +
+      '<div class="sheet-h"><h2 class="h2" id="calct">Kalkulator</h2><button type="button" class="iconbtn" data-act="calc-tutup" aria-label="Tutup kalkulator">' + ic('x', 18) + '</button></div>' +
+      '<div class="cdisp"><div class="ce" id="calce">' + (calc.expr ? esc(calc.expr) : '&nbsp;') + '</div><div class="cd" id="calcd" style="font-size:' + calcUkuran(t) + 'px">' + esc(t) + '</div></div>' +
+      '<div class="ckeys">' + K.map(function (x) {
+        return '<button type="button" class="ck' + (x[2] ? ' ' + x[2] : '') + '" data-act="calc-key" data-k="' + x[0] + '"' + (x[3] ? ' aria-label="' + x[3] + '"' : '') + '>' + x[1] + '</button>';
+      }).join('') + '</div></div></div>';
+  }
+
+  /* ----- progres ----- */
+  function vProgres() {
+    var h = getHist(), st = stats(h);
+    var html = '<h1 class="h1">Progres Ujian</h1><p class="lead">Riwayat nilai dari ujian quiz yang sudah kamu selesaikan.</p>' + statsHtml(st);
+    html += '<section class="glass card"><h2 class="h2"><span class="dot"></span>Perkembangan Nilai</h2>' + chart(h) + '</section>';
+    html += vPenguasaan(h, analisis(h));
+    html += '<section class="glass card"><h2 class="h2"><span class="dot"></span>Riwayat</h2>';
+    if (!h.length) html += '<p class="empty">Belum ada riwayat ujian.</p>';
+    else {
+      html += '<ul class="hist">';
+      h.slice().reverse().forEach(function (r) {
+        html += '<li><div class="hn"><b>' + esc(fmtDate(r.tanggal)) + '</b><span>' + r.benar + ' benar, ' + r.salah + ' salah' + (r.waktuHabis ? ', waktu habis' : '') + '</span></div><span class="nv">' + fmtNum(r.nilai) + '</span></li>';
+      });
+      html += '</ul>';
+    }
+    html += '</section>';
+    html += '<section class="glass card"><h2 class="h2"><span class="dot"></span>Cadangan riwayat</h2>' +
+      '<p class="lead">Riwayat tersimpan di browser ini saja. Simpan cadangan agar tidak hilang saat data browser dihapus atau saat berganti HP.</p>' +
+      '<div class="row"><button type="button" class="btn btn-ghost" data-act="pr-salin"' + (h.length ? '' : ' disabled') + '>Salin cadangan</button>' +
+      (window.QL_CAN_DOWNLOAD ? '<button type="button" class="btn btn-ghost" data-act="pr-unduh"' + (h.length ? '' : ' disabled') + '>Unduh file</button>' : '') + '</div>';
+    if (cadangan) html += '<label for="cad" class="note">Salin teks berikut secara manual:</label><textarea id="cad" readonly>' + esc(cadangan) + '</textarea>';
+    html += '<label for="imp" class="note">Pulihkan dari cadangan: tempel teks cadangan atau pilih file.</label>' +
+      '<textarea id="imp" placeholder="Tempel teks cadangan di sini"></textarea>' +
+      '<div class="row"><button type="button" class="btn btn-sm" data-act="pr-pulihkan">Pulihkan</button>' +
+      '<span class="btn btn-ghost btn-sm filebtn">Pilih file cadangan<input type="file" id="impFile" accept=".json,application/json,text/plain" aria-label="Pilih file cadangan"></span></div></section>';
+    if (h.length) {
+      if (hapusConfirm) html += '<div class="confirm"><p><b>Hapus semua riwayat ujian?</b> Tindakan ini tidak bisa dibatalkan.</p><div class="row"><button type="button" class="btn" data-act="pr-hapus-ya">Ya, hapus</button><button type="button" class="btn btn-ghost" data-act="pr-hapus-batal">Batal</button></div></div>';
+      else html += '<button type="button" class="btn btn-ghost btn-block" data-act="pr-hapus">Hapus semua riwayat</button>';
+    }
+    return html;
+  }
+
+  function soalItem(s, tipe) {
+    var q = Q[s.id], n = s.benar + s.salah;
+    var info = tipe === 'salah' ? 'Salah ' + s.salah + ' dari ' + n + ' kali' : 'Benar ' + s.benar + ' dari ' + n + ' kali';
+    return '<li><div class="qt">' + esc(q.tanya) + '</div><div class="qm"><span class="chip">' + esc(q.babJudul.split('.')[0]) + '</span><span class="small muted">' + info + '</span></div></li>';
+  }
+  function daftarSoal(judul, list, tipe, kosong) {
+    var html = '<section class="glass card"><h2 class="h2"><span class="dot"></span>' + judul + '</h2>';
+    if (!list.length) return html + '<p class="empty">' + kosong + '</p></section>';
+    html += '<ul class="qlist">' + list.slice(0, 10).map(function (s) { return soalItem(s, tipe); }).join('') + '</ul>';
+    if (list.length > 10) html += '<p class="note">Dan ' + (list.length - 10) + ' soal lainnya.</p>';
+    if (tipe === 'salah') html += '<button type="button" class="btn btn-block" data-act="lat-mulai" data-b="salah">' + ic('pencil', 18) + 'Latih soal-soal ini</button>';
+    return html + '</section>';
+  }
+  function vPenguasaan(h, an) {
+    var html = '<section class="glass card"><h2 class="h2"><span class="dot"></span>Penguasaan per Bab</h2>';
+    if (!h.length) return html + '<p class="empty">Selesaikan satu ujian untuk melihat bab yang sudah dan belum kamu kuasai.</p></section>';
+    if (!an.ada) return html + '<p class="empty">Ujian sebelumnya belum mencatat hasil per soal. Analisis muncul setelah ujian berikutnya selesai.</p></section>';
+    html += '<ul class="mast">';
+    an.bab.forEach(function (x) {
+      var teks = !x.n ? 'Belum ada jawaban' : (x.n < MIN_BAB ? 'Baru ' + x.n + ' jawaban (minimal ' + MIN_BAB + ' agar dinilai)' : x.n + ' jawaban, ' + x.pct + '% benar');
+      html += '<li class="mrow"><div class="mtop"><span class="mt">' + esc(x.b.judul) + '</span><span class="pill pill-' + x.st.k + '">' + x.st.t + '</span></div>' +
+        '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + x.pct + '" aria-label="Persentase benar ' + esc(x.b.judul) + '"><i style="width:' + x.pct + '%"></i></div>' +
+        '<div class="mbot"><span class="small muted">' + teks + '</span><button type="button" class="btn btn-ghost btn-sm" data-act="lat-mulai" data-b="' + x.b.id + '">Latih</button></div></li>';
+    });
+    html += '</ul><p class="note">Dihitung dari semua jawaban di riwayat ujian. Dikuasai mulai ' + BATAS_KUASAI + '% benar, Cukup mulai ' + BATAS_CUKUP + '%. Soal yang tidak sempat dijawab karena waktu habis tidak ikut dihitung.</p></section>';
+    html += daftarSoal('Soal yang Sering Salah', an.salah, 'salah', 'Belum ada soal yang sering salah. Soal baru dinilai setelah dijawab minimal ' + MIN_SOAL + ' kali.');
+    html += daftarSoal('Soal yang Selalu Benar', an.benar, 'benar', 'Belum ada soal yang dijawab benar terus. Soal baru dinilai setelah dijawab minimal ' + MIN_SOAL + ' kali.');
+    return html;
+  }
+
+  function cadanganJson() {
+    return JSON.stringify({ app: 'quizlearn', versi: 2, diekspor: new Date().toISOString(), riwayat: getHist() });
+  }
+  function pulihkan(text) {
+    var obj = parse((text || '').trim(), null);
+    var arr = Array.isArray(obj) ? obj : (obj && Array.isArray(obj.riwayat) ? obj.riwayat : null);
+    if (!arr) { toast('Teks cadangan tidak dikenali. Pastikan disalin utuh.'); return; }
+    var valid = arr.filter(validRec).map(cleanRec);
+    if (!valid.length) { toast('Tidak ada riwayat yang valid di cadangan ini.'); return; }
+    var h = getHist(), ada = {}, tambah = 0;
+    h.forEach(function (r) { ada[r.id] = true; });
+    valid.forEach(function (r) { if (!ada[r.id]) { ada[r.id] = true; h.push(r); tambah++; } });
+    h.sort(function (a, b) { return new Date(a.tanggal) - new Date(b.tanggal); });
+    setHist(h);
+    toast(tambah + ' riwayat berhasil dipulihkan.');
+    render();
+  }
+
+  /* ---------- aksi ---------- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-act]') : null;
+    if (!t || t.disabled) return;
+    var act = t.getAttribute('data-act');
+    var a = aktif;
+
+    if (act === 'noop') return;
+    if (act === 'go') { go(t.getAttribute('data-v')); return; }
+
+    if (act === 'lat-mulai') { latMulai(t.getAttribute('data-b')); return; }
+    if (act === 'lat-jawab') {
+      var lid = lat.list[lat.i];
+      if (lat.fase !== 'jalan' || lat.ans[lid] !== undefined) return;
+      lat.ans[lid] = parseInt(t.getAttribute('data-k'), 10);
+      render(); return;
+    }
+    if (act === 'lat-prev') { pindahSoal('prev', function () { if (lat.i > 0) lat.i--; }); return; }
+    if (act === 'lat-next') { pindahSoal('next', function () { if (lat.i < lat.list.length - 1) lat.i++; }); return; }
+    if (act === 'lat-ke') {
+      var latTujuan = parseInt(t.getAttribute('data-i'), 10);
+      if (latTujuan !== lat.i) { var latArah = latTujuan < lat.i ? 'prev' : 'next'; lat.i = latTujuan; render({ top: true, questionDirection: latArah }); }
+      closePopup(function () { fokus('nav-buka'); });
+      return;
+    }
+    if (act === 'lat-akhiri') { if (latHitung().dj >= lat.list.length) { lat.fase = 'selesai'; navOpen = false; render({ top: true }); } return; }
+    if (act === 'lat-ulang') { latMulai(lat.b); return; }
+    if (act === 'lat-keluar') { lat = latBaru(); navOpen = false; render({ top: true }); return; }
+
+    if (act === 'uj-mulai') { ujMulai(); return; }
+    if (act === 'uj-ulang') { ujHasil = null; render({ top: true }); return; }
+    if (!a && act.indexOf('uj-') === 0) return;
+    if (act === 'uj-jawab') { a.answers[a.ids[a.idx]] = parseInt(t.getAttribute('data-k'), 10); confirming = false; saveAktif(); render(); return; }
+    if (act === 'uj-ke') {
+      var ujTujuan = parseInt(t.getAttribute('data-i'), 10);
+      if (ujTujuan !== a.idx) { var ujArah = ujTujuan < a.idx ? 'prev' : 'next'; a.idx = ujTujuan; confirming = false; saveAktif(); render({ top: true, questionDirection: ujArah }); }
+      closePopup(function () { fokus('nav-buka'); });
+      return;
+    }
+    if (act === 'uj-ragu') { var rid = a.ids[a.idx]; if (a.answers[rid] === undefined || a.answers[rid] === null) return; if (a.flags[rid]) delete a.flags[rid]; else a.flags[rid] = true; saveAktif(); render(); return; }
+    if (act === 'calc-buka') { calcOpen = true; navOpen = false; syncOverlay(); var kb = $ov.querySelector('.iconbtn'); if (kb) kb.focus(); return; }
+    if (act === 'calc-tutup') { closePopup(function () { fokus('calc-buka'); }); return; }
+    if (act === 'calc-key') { cTekan(t.getAttribute('data-k')); calcUpdate(); return; }
+    if (act === 'nav-buka') { navOpen = true; calcOpen = false; syncOverlay(); var cb = $ov.querySelector('.iconbtn'); if (cb) cb.focus(); return; }
+    if (act === 'nav-tutup') { closePopup(function () { fokus('nav-buka'); }); return; }
+    if (act === 'uj-prev') { pindahSoal('prev', function () { if (a.idx > 0) a.idx--; confirming = false; saveAktif(); }); return; }
+    if (act === 'uj-next') { pindahSoal('next', function () { if (a.idx < a.ids.length - 1) a.idx++; confirming = false; saveAktif(); }); return; }
+    if (act === 'uj-akhiri') { confirming = true; render(); return; }
+    if (act === 'uj-batal') { confirming = false; render(); return; }
+    if (act === 'uj-ya') { finish(false); return; }
+
+    if (act === 'pr-salin') {
+      var json = cadanganJson();
+      var fallback = function () { cadangan = json; render(); toast('Salin teks cadangan secara manual dari kotak di bawah.'); };
+      try {
+        navigator.clipboard.writeText(json).then(function () { cadangan = null; toast('Cadangan disalin. Tempel dan simpan di catatan atau pesan ke diri sendiri.'); }, fallback);
+      } catch (err) { fallback(); }
+      return;
+    }
+    if (act === 'pr-unduh') {
+      try {
+        var blob = new Blob([cadanganJson()], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.href = url; link.download = 'cadangan-quizlearn.json';
+        document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+        toast('File cadangan diunduh.');
+      } catch (err) { toast('Unduh gagal. Gunakan tombol Salin cadangan.'); }
+      return;
+    }
+    if (act === 'pr-pulihkan') { var ta = document.getElementById('imp'); pulihkan(ta ? ta.value : ''); return; }
+    if (act === 'pr-hapus') { hapusConfirm = true; render(); return; }
+    if (act === 'pr-hapus-batal') { hapusConfirm = false; render(); return; }
+    if (act === 'pr-hapus-ya') { setHist([]); hapusConfirm = false; ujHasil = null; toast('Riwayat dihapus.'); render(); return; }
+  });
+
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.id === 'impFile' && e.target.files && e.target.files[0]) {
+      var rd = new FileReader();
+      rd.onload = function () { pulihkan(String(rd.result || '')); };
+      rd.onerror = function () { toast('File tidak bisa dibaca.'); };
+      rd.readAsText(e.target.files[0]);
+    }
+  });
+
+  /* ---------- layar sambutan ---------- */
+  function welcome() {
+    var el = document.createElement('div');
+    el.id = 'welcome'; el.className = 'wel'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-labelledby', 'welt');
+    el.innerHTML = '<div class="wel-blur"></div><div class="wel-body"><div class="logo" aria-hidden="true">' + ic('bolt', 22) + '</div><h1 class="wel-t" id="welt">Are you ready?</h1><button type="button" class="btn wel-btn" id="welbtn">I am ready!</button></div>';
+    document.body.appendChild(el);
+    var inertEls = [document.querySelector('.app'), document.getElementById('dock')];
+    inertEls.forEach(function (x) { if (x) x.setAttribute('inert', ''); });
+    document.body.style.overflow = 'hidden';
+    var btn = document.getElementById('welbtn'), blur = el.querySelector('.wel-blur'), body = el.querySelector('.wel-body');
+    btn.focus();
+    var busy = false;
+    function selesai() {
+      if (el.parentNode) el.parentNode.removeChild(el);
+      inertEls.forEach(function (x) { if (x) x.removeAttribute('inert'); });
+      document.body.style.overflow = navOpen ? 'hidden' : '';
+      try { $main.focus({ preventScroll: true }); } catch (e) {}
+    }
+    btn.addEventListener('click', function () {
+      if (busy) return; busy = true;
+      var r = btn.getBoundingClientRect();
+      bukaBlur(el, blur, body, r.left + r.width / 2, r.top + r.height / 2, selesai);
+    });
+  }
+
+  /* Animasi buka buram (dipakai layar sambutan dan layar loading): lingkaran jernih melebar dari titik (cx, cy) */
+  function bukaBlur(el, blur, body, cx, cy, selesai) {
+    var W = window.innerWidth, H = window.innerHeight;
+    var dx = Math.max(cx, W - cx), dy = Math.max(cy, H - cy);
+    var soft = 160, total = Math.sqrt(dx * dx + dy * dy) + soft;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    body.classList.add('out');
+    if (reduce || !window.requestAnimationFrame) { el.classList.add('fade'); setTimeout(selesai, 260); return; }
+    var dur = 1100, t0 = null;
+    function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), R = ease(p) * total;
+      var sf = Math.min(soft, R);
+      var m = 'radial-gradient(circle at ' + cx + 'px ' + cy + 'px, transparent ' + R + 'px, #000 ' + (R + sf) + 'px)';
+      blur.style.webkitMaskImage = m; blur.style.maskImage = m;
+      if (p < 1) requestAnimationFrame(frame); else selesai();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- layar loading 0-100% sebelum latihan / ujian dimulai ---------- */
+  var memuat = false;
+  function muat(label, aksi) {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (memuat) return;
+    if (reduce || !window.requestAnimationFrame) { aksi(); return; }
+    memuat = true;
+    var el = document.createElement('div');
+    el.className = 'wel ld'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', label);
+    el.innerHTML = '<div class="wel-blur"></div><div class="wel-body"><div class="logo" aria-hidden="true">' + ic('bolt', 22) + '</div>' +
+      '<div class="ld-pct">0%</div><div class="ld-bar" aria-hidden="true"><i></i></div><div class="ld-lbl">' + esc(label) + '</div></div>';
+    document.body.appendChild(el);
+    var inertEls = [document.querySelector('.app'), document.getElementById('dock')];
+    inertEls.forEach(function (x) { if (x) x.setAttribute('inert', ''); });
+    document.body.style.overflow = 'hidden';
+    var pct = el.querySelector('.ld-pct'), bar = el.querySelector('.ld-bar i'), blur = el.querySelector('.wel-blur'), body = el.querySelector('.wel-body');
+    function selesai() {
+      if (el.parentNode) el.parentNode.removeChild(el);
+      inertEls.forEach(function (x) { if (x) x.removeAttribute('inert'); });
+      document.body.style.overflow = (navOpen || calcOpen) ? 'hidden' : '';
+      memuat = false;
+      try { $main.focus({ preventScroll: true }); } catch (e) {}
+    }
+    var dur = 1000, t0 = null;
+    function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), e = ease(p);
+      pct.textContent = Math.round(e * 100) + '%';
+      bar.style.transform = 'scaleX(' + e + ')';
+      if (p < 1) { requestAnimationFrame(frame); return; }
+      aksi();   // latihan/ujian dibangun di balik layar buram
+      setTimeout(function () {
+        var r = body.getBoundingClientRect();
+        bukaBlur(el, blur, body, r.left + r.width / 2, r.top + r.height / 2, selesai);
+      }, 180);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- efek tekan tombol (delegasi: berlaku juga untuk tombol yang dibuat dinamis) ---------- */
+  (function () {
+    var selector = 'button:not([disabled]),input[type="button"]:not([disabled]),input[type="submit"]:not([disabled]),input[type="reset"]:not([disabled]),[role="button"]:not([aria-disabled="true"]),.btn:not([disabled]),.back:not([disabled]),.filebtn:not([disabled]),.chip-btn:not([disabled])';
+    var pressed = null, releaseTimer = null;
+    function release() {
+      if (pressed) pressed.classList.remove('ql-pressed');
+      pressed = null;
+      if (releaseTimer) { clearTimeout(releaseTimer); releaseTimer = null; }
+    }
+    document.addEventListener('pointerdown', function (e) {
+      var el = e.target && e.target.closest ? e.target.closest(selector) : null;
+      if (!el) return;
+      release();
+      pressed = el;
+      el.classList.add('ql-pressed');
+    }, true);
+    function scheduleRelease() {
+      if (releaseTimer) clearTimeout(releaseTimer);
+      releaseTimer = setTimeout(release, 170);
+    }
+    document.addEventListener('pointerup', scheduleRelease, true);
+    document.addEventListener('pointercancel', release, true);
+    window.addEventListener('blur', release);
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== ' ' && e.key !== 'Enter') return;
+      var el = document.activeElement;
+      if (el && el.matches && el.matches(selector)) { pressed = el; el.classList.add('ql-pressed'); }
+    }, true);
+    document.addEventListener('keyup', function (e) {
+      if (e.key === ' ' || e.key === 'Enter') scheduleRelease();
+    }, true);
+  })();
+
+  /* ---------- mulai ---------- */
+  if (aktif && aktif.endAt <= Date.now()) {
+    finish(true);
+    toast('Waktu ujian sebelumnya sudah habis. Hasil tersimpan di Progres.');
+  } else {
+    render();
+  }
+  if (!aktif) welcome();   // ujian yang sedang berjalan tidak ditunda oleh layar sambutan
+})();
+
+</script>
+
+</body></html>
